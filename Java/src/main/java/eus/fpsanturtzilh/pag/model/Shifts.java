@@ -9,9 +9,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.PrePersist;
-import jakarta.persistence.PreUpdate;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
@@ -20,27 +17,21 @@ import lombok.NoArgsConstructor;
 @Getter 
 @Setter
 @NoArgsConstructor
-public class Students {
-    @Id
+public class Shifts {
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     
-    @Column(name = "name")
-    private String name;
-    
-    @Column(name = "surname")
-    private String surname;
-    
-    @OneToOne(mappedBy = "student")
-    private Users user;
-    
+	@Column(name = "type")
+    private String type;
+	
     @ManyToOne
     @JoinColumn(
-        name = "group_id",
-        foreignKey = @jakarta.persistence.ForeignKey(name = "fk_students_groups"),
+        name = "student_id",
+        foreignKey = @jakarta.persistence.ForeignKey(name = "fk_shifts_students"),
         referencedColumnName = "id"
     )
-    private Groups group;
+    private Students student;
     
     @Column(name = "created_at")
     private LocalDateTime createdAt;
@@ -50,15 +41,5 @@ public class Students {
     
     @Column(name = "deleted_at")
     private LocalDateTime deletedAt;
-    
-    @PrePersist
-    protected void onCreate() {
-        createdAt = LocalDateTime.now();
-        updatedAt = LocalDateTime.now();
-    }
-    
-    @PreUpdate
-    protected void onUpdate() {
-        updatedAt = LocalDateTime.now();
-    }
+
 }

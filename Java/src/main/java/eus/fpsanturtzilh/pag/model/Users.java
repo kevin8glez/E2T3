@@ -8,10 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
-import jakarta.persistence.PrePersist;
-import jakarta.persistence.PreUpdate;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
@@ -20,27 +17,19 @@ import lombok.NoArgsConstructor;
 @Getter 
 @Setter
 @NoArgsConstructor
-public class Students {
-    @Id
+public class Users {
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     
-    @Column(name = "name")
-    private String name;
+    @Column(name = "username", length = 50)
+    private String username;
     
-    @Column(name = "surname")
-    private String surname;
+    @Column(name = "email", length = 255)
+    private String email;
     
-    @OneToOne(mappedBy = "student")
-    private Users user;
-    
-    @ManyToOne
-    @JoinColumn(
-        name = "group_id",
-        foreignKey = @jakarta.persistence.ForeignKey(name = "fk_students_groups"),
-        referencedColumnName = "id"
-    )
-    private Groups group;
+    @Column(name = "rol", length = 50)
+    private String rol;
     
     @Column(name = "created_at")
     private LocalDateTime createdAt;
@@ -51,14 +40,20 @@ public class Students {
     @Column(name = "deleted_at")
     private LocalDateTime deletedAt;
     
-    @PrePersist
-    protected void onCreate() {
-        createdAt = LocalDateTime.now();
-        updatedAt = LocalDateTime.now();
-    }
+    @OneToOne
+    @JoinColumn(
+        name = "student_id",
+        foreignKey = @jakarta.persistence.ForeignKey(name = "fk_users_students"),
+        referencedColumnName = "id"
+    )
+    private Students student;
     
-    @PreUpdate
-    protected void onUpdate() {
-        updatedAt = LocalDateTime.now();
-    }
+    @OneToOne
+    @JoinColumn(
+        name = "client_id",
+        foreignKey = @jakarta.persistence.ForeignKey(name = "fk_users_clients"),
+        referencedColumnName = "id"
+    )
+    private Clients client;
+
 }

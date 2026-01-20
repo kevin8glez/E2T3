@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ErronkaFrogaApplication {
+public class ErronkaE2T3Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ErronkaFrogaApplication.class, args);
+		SpringApplication.run(ErronkaE2T3Application.class, args);
 	}
 
 }
