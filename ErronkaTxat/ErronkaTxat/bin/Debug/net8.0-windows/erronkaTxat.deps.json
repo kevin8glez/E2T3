@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "erronkaTxat/1.0.0": {
+        "runtime": {
+          "erronkaTxat.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "erronkaTxat/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
