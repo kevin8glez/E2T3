@@ -4,11 +4,14 @@ import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
@@ -22,7 +25,7 @@ public class AppointmentsServices {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(
 	    name = "appointment_id",
 	    foreignKey = @jakarta.persistence.ForeignKey(name = "fk_appointmentsservices_appointments"),
@@ -30,7 +33,7 @@ public class AppointmentsServices {
 	)
 	private Appointments appointment;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(
 	    name = "service_id",
 	    foreignKey = @jakarta.persistence.ForeignKey(name = "fk_appointmentsservices_services"),
@@ -49,5 +52,16 @@ public class AppointmentsServices {
 	
 	@Column(name = "deleted_at")
 	private LocalDateTime deletedAt;
+	
+	@PrePersist
+	protected void onCreate() {
+	    createdAt = LocalDateTime.now();
+	    updatedAt = LocalDateTime.now();
+	}
+
+	@PreUpdate
+	protected void onUpdate() {
+	    updatedAt = LocalDateTime.now();
+	}
 
 }
