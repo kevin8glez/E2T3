@@ -1,0 +1,10 @@
+C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0\erronkaTxat.ErabiltzaileBerria.resources
+C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0\erronkaTxat.Form1.resources
+C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0\erronkaTxat.LehenengoMenua.resources
+C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0\erronkaTxat.Sarbidea.resources
+C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0\ErronkaTxat.csproj.GenerateResource.cache
+C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0\ErronkaTxat.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0\ErronkaTxat.AssemblyInfoInputs.cache
+C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0\ErronkaTxat.AssemblyInfo.cs
+C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0\ErronkaTxat.csproj.CoreCompileInputs.cache
+C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0\ErronkaTxat.sourcelink.json
