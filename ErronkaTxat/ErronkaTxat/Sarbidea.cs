@@ -25,7 +25,7 @@ namespace erronkaTxat
         {
             string erab = erabTextBox.Text;
             //ZerbitzariariBidali(erab,IPaLortu());
-            ZerbitzariLotura zerbLot = new ZerbitzariLotura(erab);
+            ZerbitzariLotura zerbLot = new ZerbitzariLotura();
         }
 
         private void Sarbidea_Load(object sender, EventArgs e)

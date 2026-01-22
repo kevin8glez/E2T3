@@ -55,6 +55,8 @@
             // 
             // panel1
             // 
+            panel1.BackColor = Color.FromArgb(224, 224, 224);
+            panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Location = new Point(26, 26);
             panel1.Name = "panel1";
             panel1.Size = new Size(750, 268);

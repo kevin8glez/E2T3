@@ -11,7 +11,11 @@ class MyTcpMultipleListener
     {
         // Zerbitzariaren portu-zenbakia eta IP helbidea.
         int portu = 13000;
-        IPAddress ip = IPAddress.Parse("127.0.0.1");
+
+        IPHostEntry infoHost = Dns.GetHostEntry(Dns.GetHostName());
+        IPAddress ip = infoHost.AddressList[1];
+
+        //IPAddress ip = IPAddress.Parse("127.0.0.1");
         // Guk definitutako klasearen objektua sortu.
         MyTcpMultipleListener zerbitzariAplikazioa = new MyTcpMultipleListener(ip, portu);
         zerbitzariAplikazioa.EntzutenHasi();

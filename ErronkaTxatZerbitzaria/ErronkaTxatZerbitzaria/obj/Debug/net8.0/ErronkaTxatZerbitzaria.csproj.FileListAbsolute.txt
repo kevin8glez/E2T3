@@ -1,0 +1,15 @@
+C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxatZerbitzaria\ErronkaTxatZerbitzaria\bin\Debug\net8.0\ErronkaTxatZerbitzaria.exe
+C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxatZerbitzaria\ErronkaTxatZerbitzaria\bin\Debug\net8.0\ErronkaTxatZerbitzaria.deps.json
+C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxatZerbitzaria\ErronkaTxatZerbitzaria\bin\Debug\net8.0\ErronkaTxatZerbitzaria.runtimeconfig.json
+C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxatZerbitzaria\ErronkaTxatZerbitzaria\bin\Debug\net8.0\ErronkaTxatZerbitzaria.dll
+C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxatZerbitzaria\ErronkaTxatZerbitzaria\bin\Debug\net8.0\ErronkaTxatZerbitzaria.pdb
+C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxatZerbitzaria\ErronkaTxatZerbitzaria\obj\Debug\net8.0\ErronkaTxatZerbitzaria.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxatZerbitzaria\ErronkaTxatZerbitzaria\obj\Debug\net8.0\ErronkaTxatZerbitzaria.AssemblyInfoInputs.cache
+C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxatZerbitzaria\ErronkaTxatZerbitzaria\obj\Debug\net8.0\ErronkaTxatZerbitzaria.AssemblyInfo.cs
+C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxatZerbitzaria\ErronkaTxatZerbitzaria\obj\Debug\net8.0\ErronkaTxatZerbitzaria.csproj.CoreCompileInputs.cache
+C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxatZerbitzaria\ErronkaTxatZerbitzaria\obj\Debug\net8.0\ErronkaTxatZerbitzaria.sourcelink.json
+C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxatZerbitzaria\ErronkaTxatZerbitzaria\obj\Debug\net8.0\ErronkaTxatZerbitzaria.dll
+C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxatZerbitzaria\ErronkaTxatZerbitzaria\obj\Debug\net8.0\refint\ErronkaTxatZerbitzaria.dll
+C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxatZerbitzaria\ErronkaTxatZerbitzaria\obj\Debug\net8.0\ErronkaTxatZerbitzaria.pdb
+C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxatZerbitzaria\ErronkaTxatZerbitzaria\obj\Debug\net8.0\ErronkaTxatZerbitzaria.genruntimeconfig.cache
+C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxatZerbitzaria\ErronkaTxatZerbitzaria\obj\Debug\net8.0\ref\ErronkaTxatZerbitzaria.dll
