@@ -6,15 +6,15 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "erronkaTxat/1.0.0": {
+      "ErronkaTxat/1.0.0": {
         "runtime": {
-          "erronkaTxat.dll": {}
+          "ErronkaTxat.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "erronkaTxat/1.0.0": {
+    "ErronkaTxat/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

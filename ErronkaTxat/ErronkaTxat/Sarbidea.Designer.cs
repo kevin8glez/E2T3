@@ -30,17 +30,16 @@
         {
             sartuBotoia = new Button();
             erabiltzaileEtiketa = new Label();
-            pasahitzaEtiketa = new Label();
             erabTextBox = new TextBox();
-            pasaTextbox = new TextBox();
             label1 = new Label();
             SuspendLayout();
             // 
             // sartuBotoia
             // 
-            sartuBotoia.Location = new Point(266, 321);
+            sartuBotoia.Location = new Point(199, 246);
+            sartuBotoia.Margin = new Padding(3, 4, 3, 4);
             sartuBotoia.Name = "sartuBotoia";
-            sartuBotoia.Size = new Size(95, 38);
+            sartuBotoia.Size = new Size(109, 51);
             sartuBotoia.TabIndex = 0;
             sartuBotoia.Text = "Sartu";
             sartuBotoia.UseVisualStyleBackColor = true;
@@ -49,58 +48,41 @@
             // erabiltzaileEtiketa
             // 
             erabiltzaileEtiketa.AutoSize = true;
-            erabiltzaileEtiketa.Location = new Point(173, 177);
+            erabiltzaileEtiketa.Location = new Point(113, 167);
             erabiltzaileEtiketa.Name = "erabiltzaileEtiketa";
-            erabiltzaileEtiketa.Size = new Size(69, 15);
+            erabiltzaileEtiketa.Size = new Size(91, 20);
             erabiltzaileEtiketa.TabIndex = 1;
             erabiltzaileEtiketa.Text = "Erabiltzailea";
             // 
-            // pasahitzaEtiketa
-            // 
-            pasahitzaEtiketa.AutoSize = true;
-            pasahitzaEtiketa.Location = new Point(173, 224);
-            pasahitzaEtiketa.Name = "pasahitzaEtiketa";
-            pasahitzaEtiketa.Size = new Size(56, 15);
-            pasahitzaEtiketa.TabIndex = 2;
-            pasahitzaEtiketa.Text = "Pasahitza";
-            pasahitzaEtiketa.Click += label2_Click;
-            // 
             // erabTextBox
             // 
-            erabTextBox.Location = new Point(296, 174);
+            erabTextBox.Location = new Point(234, 164);
+            erabTextBox.Margin = new Padding(3, 4, 3, 4);
             erabTextBox.Name = "erabTextBox";
-            erabTextBox.Size = new Size(163, 23);
+            erabTextBox.Size = new Size(186, 27);
             erabTextBox.TabIndex = 3;
             erabTextBox.TextChanged += textBox1_TextChanged;
-            // 
-            // pasaTextbox
-            // 
-            pasaTextbox.Location = new Point(296, 221);
-            pasaTextbox.Name = "pasaTextbox";
-            pasaTextbox.Size = new Size(163, 23);
-            pasaTextbox.TabIndex = 4;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15F);
-            label1.Location = new Point(226, 60);
+            label1.Location = new Point(137, 60);
             label1.Name = "label1";
-            label1.Size = new Size(190, 28);
+            label1.Size = new Size(241, 35);
             label1.TabIndex = 5;
             label1.Text = "Ileapaindegiko Txata";
             // 
             // Sarbidea
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(625, 450);
+            ClientSize = new Size(514, 376);
             Controls.Add(label1);
-            Controls.Add(pasaTextbox);
             Controls.Add(erabTextBox);
-            Controls.Add(pasahitzaEtiketa);
             Controls.Add(erabiltzaileEtiketa);
             Controls.Add(sartuBotoia);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Sarbidea";
             Text = "Ileapaindegiko Txata";
             Load += Sarbidea_Load;
@@ -112,9 +94,7 @@
 
         private Button sartuBotoia;
         private Label erabiltzaileEtiketa;
-        private Label pasahitzaEtiketa;
         private TextBox erabTextBox;
-        private TextBox pasaTextbox;
         private Label label1;
     }
 }

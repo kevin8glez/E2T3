@@ -7,6 +7,21 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 class MyTcpMultipleListener
 {
+    public static int Main(string[] args)
+    {
+        // Zerbitzariaren portu-zenbakia eta IP helbidea.
+        int portu = 13000;
+        IPAddress ip = IPAddress.Parse("127.0.0.1");
+        // Guk definitutako klasearen objektua sortu.
+        MyTcpMultipleListener zerbitzariAplikazioa = new MyTcpMultipleListener(ip, portu);
+        zerbitzariAplikazioa.EntzutenHasi();
+        zerbitzariAplikazioa.Itxi();
+
+
+        Console.WriteLine("\nSakatu <ENTER> bukatzeko...");
+        Console.Read();
+        return 0;
+    }
 
     // Klasearen atributuak.
 
@@ -109,19 +124,5 @@ class MyTcpMultipleListener
     /**
      * Main metodoa, programa hemen hasten da.
      */
-    public static int Main(string[] args)
-    {
-        // Zerbitzariaren portu-zenbakia eta IP helbidea.
-        int port = 13000;
-        IPAddress localAddr = IPAddress.Parse("127.0.0.1");
-        // Guk definitutako klasearen objektua sortu.
-        MyTcpMultipleListener zerbitzariAplikazioa = new MyTcpMultipleListener(localAddr, port);
-        zerbitzariAplikazioa.EntzutenHasi();
-        zerbitzariAplikazioa.Itxi();
-
-
-        Console.WriteLine("\nSakatu <ENTER> bukatzeko...");
-        Console.Read();
-        return 0;
-    }
+    
 }
