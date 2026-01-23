@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ErronkaTxat
 {
-    class ZerbitzariLotura()
+   /* class ZerbitzariLotura()
     {
         public int Hasi()
         {
@@ -46,7 +46,7 @@ namespace ErronkaTxat
 
         /**
          * Eraikitzailea.
-         */
+         
         public void Konektat()
         {
 
@@ -54,7 +54,7 @@ namespace ErronkaTxat
 
         /**
          * Konektatu emandako ip helbide eta portu-zenbakia daukan zerbitzarira.
-         */
+         
         public void Konektatu()
         {
             try
@@ -82,7 +82,7 @@ namespace ErronkaTxat
 
         /**
          * Bidali zerbitzariari kontsolan irakurritako esaldia letra larrietara bihur dezan.
-         */
+         
         private void BidaliDatuak(string erab)
         {
             try
@@ -106,7 +106,7 @@ namespace ErronkaTxat
 
         /**
          * Irakurri zerbitzariak bidalitako erantzuna eta erakutsi kontsolatik.
-         */
+         
         private void ErakutsiErantzuna()
         {
             try
@@ -130,7 +130,7 @@ namespace ErronkaTxat
 
         /**
          * Itxi konexio danak.
-         */
+         
         private void Itxi()
         {
             try
@@ -146,10 +146,10 @@ namespace ErronkaTxat
                 Console.WriteLine("Konexioak ezin izan dira itxi: {0}", e);
             }
         }
-
+        
         /**
          * Main metodoa, programa hemen hasten da.
-         */
+         
         
-    }
+    }*/
 }

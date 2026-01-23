@@ -36,3 +36,4 @@ C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0-windows\E
 C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0-windows\ErronkaTxat.genruntimeconfig.cache
 C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0-windows\ref\ErronkaTxat.dll
 C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0-windows\ErronkaTxat.Txata.resources
+C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0-windows\ErronkaTxat.EzarpenMenua.resources

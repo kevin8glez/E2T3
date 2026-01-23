@@ -11,7 +11,7 @@ namespace erronkaTxat
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        /*private void label2_Click(object sender, EventArgs e)
         {
 
         }
@@ -25,12 +25,23 @@ namespace erronkaTxat
         {
             string erab = erabTextBox.Text;
             //ZerbitzariariBidali(erab,IPaLortu());
-            ZerbitzariLotura zerbLot = new ZerbitzariLotura();
+            //ZerbitzariLotura zerbLot = new ZerbitzariLotura();
         }
 
         private void Sarbidea_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }*/
+
+        private void ezarpenBotoia_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            EzarpenMenua ezMen = new EzarpenMenua();
+            ezMen.ShowDialog();
         }
 
         /*private IPAddress IPaLortu()

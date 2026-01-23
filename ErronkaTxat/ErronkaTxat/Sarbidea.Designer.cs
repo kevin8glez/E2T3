@@ -1,4 +1,5 @@
-﻿namespace erronkaTxat
+﻿
+namespace erronkaTxat
 {
     partial class Sarbidea
     {
@@ -32,6 +33,7 @@
             erabiltzaileEtiketa = new Label();
             erabTextBox = new TextBox();
             label1 = new Label();
+            ezarpenBotoia = new LinkLabel();
             SuspendLayout();
             // 
             // sartuBotoia
@@ -61,7 +63,7 @@
             erabTextBox.Name = "erabTextBox";
             erabTextBox.Size = new Size(186, 27);
             erabTextBox.TabIndex = 3;
-            erabTextBox.TextChanged += textBox1_TextChanged;
+            erabTextBox.TextChanged += erabTextBox_TextChanged;
             // 
             // label1
             // 
@@ -73,21 +75,53 @@
             label1.TabIndex = 5;
             label1.Text = "Ileapaindegiko Txata";
             // 
+            // ezarpenBotoia
+            // 
+            ezarpenBotoia.AutoSize = true;
+            ezarpenBotoia.ImageAlign = ContentAlignment.TopLeft;
+            ezarpenBotoia.LinkColor = Color.Black;
+            ezarpenBotoia.Location = new Point(12, 9);
+            ezarpenBotoia.Name = "ezarpenBotoia";
+            ezarpenBotoia.Size = new Size(77, 20);
+            ezarpenBotoia.TabIndex = 8;
+            ezarpenBotoia.TabStop = true;
+            ezarpenBotoia.Text = "Ezarpenak";
+            ezarpenBotoia.TextAlign = ContentAlignment.MiddleCenter;
+            ezarpenBotoia.VisitedLinkColor = Color.Black;
+            ezarpenBotoia.LinkClicked += ezarpenBotoia_LinkClicked;
+            // 
             // Sarbidea
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(514, 376);
+            Controls.Add(ezarpenBotoia);
             Controls.Add(label1);
             Controls.Add(erabTextBox);
             Controls.Add(erabiltzaileEtiketa);
             Controls.Add(sartuBotoia);
             Margin = new Padding(3, 4, 3, 4);
             Name = "Sarbidea";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Ileapaindegiko Txata";
             Load += Sarbidea_Load;
             ResumeLayout(false);
             PerformLayout();
+        }
+
+        private void Sarbidea_Load(object sender, EventArgs e)
+        {
+            //k
+        }
+
+        private void erabTextBox_TextChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void sartuBotoia_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
@@ -96,5 +130,6 @@
         private Label erabiltzaileEtiketa;
         private TextBox erabTextBox;
         private Label label1;
+        private LinkLabel ezarpenBotoia;
     }
 }
