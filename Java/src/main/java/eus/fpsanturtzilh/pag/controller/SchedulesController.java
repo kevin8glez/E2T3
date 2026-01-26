@@ -2,6 +2,8 @@ package eus.fpsanturtzilh.pag.controller;
 
 import eus.fpsanturtzilh.pag.model.Schedules;
 import eus.fpsanturtzilh.pag.service.SchedulesService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,27 +19,37 @@ public class SchedulesController {
     }
 
     @GetMapping
-    public List<Schedules> getAllSchedules() {
-        return service.getAllSchedules();
+    public ResponseEntity<List<Schedules>> getAllSchedules() {
+        List<Schedules> schedules = service.getAllSchedules();
+        return ResponseEntity.ok(schedules);
     }
 
     @GetMapping("/{id}")
-    public Schedules getScheduleById(@PathVariable int id) {
-        return service.getById(id);
+    public ResponseEntity<Schedules> getScheduleById(@PathVariable int id) {
+        Schedules schedule = service.getById(id);
+        return schedule != null 
+            ? ResponseEntity.ok(schedule) 
+            : ResponseEntity.notFound().build();
     }
 
     @PostMapping
-    public Schedules createSchedules(@RequestBody Schedules schedule) {
-        return service.saveSchedules(schedule);
+    public ResponseEntity<Schedules> createSchedules(@RequestBody Schedules schedule) {
+        Schedules saved = service.saveSchedules(schedule);
+        return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }
 
     @PutMapping("/{id}")
-    public Schedules updateSchedules(@PathVariable int id, @RequestBody Schedules updatedSchedule) {
-        return service.updateSchedules(id, updatedSchedule);
+    public ResponseEntity<Schedules> updateSchedules(@PathVariable int id, 
+                                                     @RequestBody Schedules updatedSchedule) {
+        Schedules updated = service.updateSchedules(id, updatedSchedule);
+        return updated != null 
+            ? ResponseEntity.ok(updated) 
+            : ResponseEntity.notFound().build();
     }
 
     @DeleteMapping("/{id}")
-    public void deleteSchedules(@PathVariable int id) {
+    public ResponseEntity<Void> deleteSchedules(@PathVariable int id) {
         service.deleteSchedules(id);
+        return ResponseEntity.noContent().build();
     }
 }
