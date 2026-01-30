@@ -13,6 +13,9 @@
     <Compile Update="FormLangile.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Froga.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="LehenengoMenua.cs">
       <SubType>Form</SubType>
     </Compile>

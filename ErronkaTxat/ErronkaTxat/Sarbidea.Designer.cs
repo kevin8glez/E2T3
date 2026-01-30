@@ -1,4 +1,5 @@
 ﻿
+
 namespace erronkaTxat
 {
     partial class Sarbidea
@@ -34,11 +35,13 @@ namespace erronkaTxat
             erabTextBox = new TextBox();
             label1 = new Label();
             ezarpenBotoia = new LinkLabel();
+            pasahitzTextBox = new TextBox();
+            PasahitzEtiketa = new Label();
             SuspendLayout();
             // 
             // sartuBotoia
             // 
-            sartuBotoia.Location = new Point(199, 246);
+            sartuBotoia.Location = new Point(199, 256);
             sartuBotoia.Margin = new Padding(3, 4, 3, 4);
             sartuBotoia.Name = "sartuBotoia";
             sartuBotoia.Size = new Size(109, 51);
@@ -50,15 +53,16 @@ namespace erronkaTxat
             // erabiltzaileEtiketa
             // 
             erabiltzaileEtiketa.AutoSize = true;
-            erabiltzaileEtiketa.Location = new Point(113, 167);
+            erabiltzaileEtiketa.Location = new Point(113, 142);
             erabiltzaileEtiketa.Name = "erabiltzaileEtiketa";
             erabiltzaileEtiketa.Size = new Size(91, 20);
             erabiltzaileEtiketa.TabIndex = 1;
             erabiltzaileEtiketa.Text = "Erabiltzailea";
+            erabiltzaileEtiketa.Click += erabiltzaileEtiketa_Click;
             // 
             // erabTextBox
             // 
-            erabTextBox.Location = new Point(234, 164);
+            erabTextBox.Location = new Point(234, 139);
             erabTextBox.Margin = new Padding(3, 4, 3, 4);
             erabTextBox.Name = "erabTextBox";
             erabTextBox.Size = new Size(186, 27);
@@ -88,13 +92,34 @@ namespace erronkaTxat
             ezarpenBotoia.Text = "Ezarpenak";
             ezarpenBotoia.TextAlign = ContentAlignment.MiddleCenter;
             ezarpenBotoia.VisitedLinkColor = Color.Black;
-            ezarpenBotoia.LinkClicked += ezarpenBotoia_LinkClicked;
+            ezarpenBotoia.LinkClicked += EzarpenBotoia_LinkClicked;
+            // 
+            // pasahitzTextBox
+            // 
+            pasahitzTextBox.Location = new Point(234, 186);
+            pasahitzTextBox.Margin = new Padding(3, 4, 3, 4);
+            pasahitzTextBox.Name = "pasahitzTextBox";
+            pasahitzTextBox.Size = new Size(186, 27);
+            pasahitzTextBox.TabIndex = 10;
+            pasahitzTextBox.TextChanged += pasahitzTextBox_TextChanged;
+            // 
+            // PasahitzEtiketa
+            // 
+            PasahitzEtiketa.AutoSize = true;
+            PasahitzEtiketa.Location = new Point(113, 189);
+            PasahitzEtiketa.Name = "PasahitzEtiketa";
+            PasahitzEtiketa.Size = new Size(70, 20);
+            PasahitzEtiketa.TabIndex = 9;
+            PasahitzEtiketa.Text = "Pasahitza";
+            PasahitzEtiketa.Click += PasahitzEtiketa_Click;
             // 
             // Sarbidea
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(514, 376);
+            Controls.Add(pasahitzTextBox);
+            Controls.Add(PasahitzEtiketa);
             Controls.Add(ezarpenBotoia);
             Controls.Add(label1);
             Controls.Add(erabTextBox);
@@ -114,14 +139,29 @@ namespace erronkaTxat
             //k
         }
 
-        private void erabTextBox_TextChanged(object sender, EventArgs e)
+        private void PasahitzEtiketa_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            //k
         }
 
-        private void sartuBotoia_Click(object sender, EventArgs e)
+        private void pasahitzTextBox_TextChanged(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            //k
+        }
+
+        private void erabTextBox_TextChanged(object sender, EventArgs e)
+        {
+            //k
+        }
+
+        private void erabiltzaileEtiketa_Click(object sender, EventArgs e)
+        {
+            //k
+        }
+
+        private void SartuBotoia_Click(object sender, EventArgs e)
+        {
+            //k
         }
 
         #endregion
@@ -131,5 +171,7 @@ namespace erronkaTxat
         private TextBox erabTextBox;
         private Label label1;
         private LinkLabel ezarpenBotoia;
+        private TextBox pasahitzTextBox;
+        private Label PasahitzEtiketa;
     }
 }

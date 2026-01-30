@@ -19,16 +19,16 @@ namespace erronkaTxat
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             //k
-        }
+        }*/
 
         private void sartuBotoia_Click(object sender, EventArgs e)
         {
-            string erab = erabTextBox.Text;
-            //ZerbitzariariBidali(erab,IPaLortu());
-            //ZerbitzariLotura zerbLot = new ZerbitzariLotura();
+            apiLotura api = new apiLotura();
+            api.erabZiur(erabTextBox.Text);
+            api.pasaZiur(pasahitzTextBox.Text);
         }
 
-        private void Sarbidea_Load(object sender, EventArgs e)
+        /*private void Sarbidea_Load(object sender, EventArgs e)
         {
 
         }
@@ -38,11 +38,16 @@ namespace erronkaTxat
 
         }*/
 
-        private void ezarpenBotoia_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void EzarpenBotoia_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             EzarpenMenua ezMen = new EzarpenMenua();
             ezMen.ShowDialog();
         }
+
+        /*private void erabiltzaileEtiketa_Click(object sender, EventArgs e)
+        {
+
+        }*/
 
         /*private IPAddress IPaLortu()
         {

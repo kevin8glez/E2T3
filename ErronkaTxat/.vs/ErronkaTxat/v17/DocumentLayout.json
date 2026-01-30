@@ -3,16 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\Ikaslea\\Desktop\\E2T3\\ErronkaTxat\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8D28F146-7C2E-4230-B61A-943ED811570B}|ErronkaTxat\\ErronkaTxat.csproj|c:\\users\\ikaslea\\desktop\\e2t3\\erronkatxat\\erronkatxat\\ezarpenmenua.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{8D28F146-7C2E-4230-B61A-943ED811570B}|ErronkaTxat\\ErronkaTxat.csproj|solutionrelative:erronkatxat\\ezarpenmenua.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{8D28F146-7C2E-4230-B61A-943ED811570B}|ErronkaTxat\\ErronkaTxat.csproj|c:\\users\\ikaslea\\desktop\\e2t3\\erronkatxat\\erronkatxat\\apilotura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D28F146-7C2E-4230-B61A-943ED811570B}|ErronkaTxat\\ErronkaTxat.csproj|solutionrelative:erronkatxat\\apilotura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D28F146-7C2E-4230-B61A-943ED811570B}|ErronkaTxat\\ErronkaTxat.csproj|c:\\users\\ikaslea\\desktop\\e2t3\\erronkatxat\\erronkatxat\\froga.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D28F146-7C2E-4230-B61A-943ED811570B}|ErronkaTxat\\ErronkaTxat.csproj|solutionrelative:erronkatxat\\froga.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D28F146-7C2E-4230-B61A-943ED811570B}|ErronkaTxat\\ErronkaTxat.csproj|c:\\users\\ikaslea\\desktop\\e2t3\\erronkatxat\\erronkatxat\\sarbidea.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D28F146-7C2E-4230-B61A-943ED811570B}|ErronkaTxat\\ErronkaTxat.csproj|solutionrelative:erronkatxat\\sarbidea.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D28F146-7C2E-4230-B61A-943ED811570B}|ErronkaTxat\\ErronkaTxat.csproj|c:\\users\\ikaslea\\desktop\\e2t3\\erronkatxat\\erronkatxat\\froga.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8D28F146-7C2E-4230-B61A-943ED811570B}|ErronkaTxat\\ErronkaTxat.csproj|solutionrelative:erronkatxat\\froga.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8D28F146-7C2E-4230-B61A-943ED811570B}|ErronkaTxat\\ErronkaTxat.csproj|c:\\users\\ikaslea\\desktop\\e2t3\\erronkatxat\\erronkatxat\\sarbidea.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{8D28F146-7C2E-4230-B61A-943ED811570B}|ErronkaTxat\\ErronkaTxat.csproj|solutionrelative:erronkatxat\\sarbidea.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8D28F146-7C2E-4230-B61A-943ED811570B}|ErronkaTxat\\ErronkaTxat.csproj|c:\\users\\ikaslea\\desktop\\e2t3\\erronkatxat\\erronkatxat\\sarbidea.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8D28F146-7C2E-4230-B61A-943ED811570B}|ErronkaTxat\\ErronkaTxat.csproj|solutionrelative:erronkatxat\\sarbidea.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8D28F146-7C2E-4230-B61A-943ED811570B}|ErronkaTxat\\ErronkaTxat.csproj|c:\\users\\ikaslea\\desktop\\e2t3\\erronkatxat\\erronkatxat\\ezarpenmenua.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8D28F146-7C2E-4230-B61A-943ED811570B}|ErronkaTxat\\ErronkaTxat.csproj|solutionrelative:erronkatxat\\ezarpenmenua.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D28F146-7C2E-4230-B61A-943ED811570B}|ErronkaTxat\\ErronkaTxat.csproj|c:\\users\\ikaslea\\desktop\\e2t3\\erronkatxat\\erronkatxat\\zerbitzarilotura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D28F146-7C2E-4230-B61A-943ED811570B}|ErronkaTxat\\ErronkaTxat.csproj|solutionrelative:erronkatxat\\zerbitzarilotura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8D28F146-7C2E-4230-B61A-943ED811570B}|ErronkaTxat\\ErronkaTxat.csproj|c:\\users\\ikaslea\\desktop\\e2t3\\erronkatxat\\erronkatxat\\ezarpenmenua.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -26,18 +42,43 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Froga.cs",
+              "DocumentMoniker": "C:\\Users\\Ikaslea\\Desktop\\E2T3\\ErronkaTxat\\ErronkaTxat\\Froga.cs",
+              "RelativeDocumentMoniker": "ErronkaTxat\\Froga.cs",
+              "ToolTip": "C:\\Users\\Ikaslea\\Desktop\\E2T3\\ErronkaTxat\\ErronkaTxat\\Froga.cs",
+              "RelativeToolTip": "ErronkaTxat\\Froga.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAowB8AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-30T19:19:46.589Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Froga.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Ikaslea\\Desktop\\E2T3\\ErronkaTxat\\ErronkaTxat\\Froga.cs",
+              "RelativeDocumentMoniker": "ErronkaTxat\\Froga.cs",
+              "ToolTip": "C:\\Users\\Ikaslea\\Desktop\\E2T3\\ErronkaTxat\\ErronkaTxat\\Froga.cs [Dise\u00F1o]",
+              "RelativeToolTip": "ErronkaTxat\\Froga.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-30T19:17:40.247Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Sarbidea.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\Ikaslea\\Desktop\\E2T3\\ErronkaTxat\\ErronkaTxat\\Sarbidea.cs",
               "RelativeDocumentMoniker": "ErronkaTxat\\Sarbidea.cs",
               "ToolTip": "C:\\Users\\Ikaslea\\Desktop\\E2T3\\ErronkaTxat\\ErronkaTxat\\Sarbidea.cs [Dise\u00F1o]",
               "RelativeToolTip": "ErronkaTxat\\Sarbidea.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-23T16:53:31.764Z",
+              "WhenOpened": "2026-01-30T19:16:42.548Z",
               "EditorCaption": " [Dise\u00F1o]"
             },
             {
@@ -48,14 +89,14 @@
               "RelativeDocumentMoniker": "ErronkaTxat\\Sarbidea.cs",
               "ToolTip": "C:\\Users\\Ikaslea\\Desktop\\E2T3\\ErronkaTxat\\ErronkaTxat\\Sarbidea.cs",
               "RelativeToolTip": "ErronkaTxat\\Sarbidea.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAtwBgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-23T16:15:40.803Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "EzarpenMenua.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\Ikaslea\\Desktop\\E2T3\\ErronkaTxat\\ErronkaTxat\\EzarpenMenua.cs",
               "RelativeDocumentMoniker": "ErronkaTxat\\EzarpenMenua.cs",
@@ -67,7 +108,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
+              "Title": "ZerbitzariLotura.cs",
+              "DocumentMoniker": "C:\\Users\\Ikaslea\\Desktop\\E2T3\\ErronkaTxat\\ErronkaTxat\\ZerbitzariLotura.cs",
+              "RelativeDocumentMoniker": "ErronkaTxat\\ZerbitzariLotura.cs",
+              "ToolTip": "C:\\Users\\Ikaslea\\Desktop\\E2T3\\ErronkaTxat\\ErronkaTxat\\ZerbitzariLotura.cs",
+              "RelativeToolTip": "ErronkaTxat\\ZerbitzariLotura.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAAAoAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-30T17:57:14.451Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "APILotura.cs",
+              "DocumentMoniker": "C:\\Users\\Ikaslea\\Desktop\\E2T3\\ErronkaTxat\\ErronkaTxat\\APILotura.cs",
+              "RelativeDocumentMoniker": "ErronkaTxat\\APILotura.cs",
+              "ToolTip": "C:\\Users\\Ikaslea\\Desktop\\E2T3\\ErronkaTxat\\ErronkaTxat\\APILotura.cs",
+              "RelativeToolTip": "ErronkaTxat\\APILotura.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-30T17:59:34.962Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "EzarpenMenua.cs",
               "DocumentMoniker": "C:\\Users\\Ikaslea\\Desktop\\E2T3\\ErronkaTxat\\ErronkaTxat\\EzarpenMenua.cs",
               "RelativeDocumentMoniker": "ErronkaTxat\\EzarpenMenua.cs",
