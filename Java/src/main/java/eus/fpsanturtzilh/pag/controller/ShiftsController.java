@@ -2,6 +2,8 @@ package eus.fpsanturtzilh.pag.controller;
 
 import eus.fpsanturtzilh.pag.model.Shifts;
 import eus.fpsanturtzilh.pag.service.ShiftsService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,27 +19,37 @@ public class ShiftsController {
     }
 
     @GetMapping
-    public List<Shifts> getAllShifts() {
-        return service.getAllShifts();
+    public ResponseEntity<List<Shifts>> getAllShifts() {
+        List<Shifts> shifts = service.getAllShifts();
+        return ResponseEntity.ok(shifts);
     }
 
     @GetMapping("/{id}")
-    public Shifts getShiftById(@PathVariable int id) {
-        return service.getById(id);
+    public ResponseEntity<Shifts> getShiftById(@PathVariable int id) {
+        Shifts shift = service.getById(id);
+        return shift != null 
+            ? ResponseEntity.ok(shift) 
+            : ResponseEntity.notFound().build();
     }
 
     @PostMapping
-    public Shifts createShifts(@RequestBody Shifts shift) {
-        return service.saveShifts(shift);
+    public ResponseEntity<Shifts> createShifts(@RequestBody Shifts shift) {
+        Shifts saved = service.saveShifts(shift);
+        return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }
 
     @PutMapping("/{id}")
-    public Shifts updateShifts(@PathVariable int id, @RequestBody Shifts updatedShift) {
-        return service.updateShifts(id, updatedShift);
+    public ResponseEntity<Shifts> updateShifts(@PathVariable int id, 
+                                               @RequestBody Shifts updatedShift) {
+        Shifts updated = service.updateShifts(id, updatedShift);
+        return updated != null 
+            ? ResponseEntity.ok(updated) 
+            : ResponseEntity.notFound().build();
     }
 
     @DeleteMapping("/{id}")
-    public void deleteShifts(@PathVariable int id) {
+    public ResponseEntity<Void> deleteShifts(@PathVariable int id) {
         service.deleteShifts(id);
+        return ResponseEntity.noContent().build();
     }
 }

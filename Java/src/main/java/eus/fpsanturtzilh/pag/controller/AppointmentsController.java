@@ -2,6 +2,8 @@ package eus.fpsanturtzilh.pag.controller;
 
 import eus.fpsanturtzilh.pag.model.Appointments;
 import eus.fpsanturtzilh.pag.service.AppointmentsService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,37 +19,49 @@ public class AppointmentsController {
     }
 
     @GetMapping
-    public List<Appointments> getAllAppointments() {
-        return service.getAllAppointments();
+    public ResponseEntity<List<Appointments>> getAllAppointments() {
+        List<Appointments> appointments = service.getAllAppointments();
+        return ResponseEntity.ok(appointments);
     }
 
     @GetMapping("/{id}")
-    public Appointments getAppointmentById(@PathVariable int id) {
-        return service.getById(id);
+    public ResponseEntity<Appointments> getAppointmentById(@PathVariable int id) {
+        Appointments appointment = service.getById(id);
+        return appointment != null 
+            ? ResponseEntity.ok(appointment) 
+            : ResponseEntity.notFound().build();
     }
 
     @GetMapping("/student/{studentId}")
-    public List<Appointments> getAppointmentsByStudentId(@PathVariable int studentId) {
-        return service.getByStudentId(studentId);
+    public ResponseEntity<List<Appointments>> getAppointmentsByStudentId(@PathVariable int studentId) {
+        List<Appointments> appointments = service.getByStudentId(studentId);
+        return ResponseEntity.ok(appointments);
     }
 
     @GetMapping("/client/{clientId}")
-    public List<Appointments> getAppointmentsByClientId(@PathVariable int clientId) {
-        return service.getByClientId(clientId);
+    public ResponseEntity<List<Appointments>> getAppointmentsByClientId(@PathVariable int clientId) {
+        List<Appointments> appointments = service.getByClientId(clientId);
+        return ResponseEntity.ok(appointments);
     }
 
     @PostMapping
-    public Appointments createAppointments(@RequestBody Appointments appointment) {
-        return service.saveAppointments(appointment);
+    public ResponseEntity<Appointments> createAppointments(@RequestBody Appointments appointment) {
+        Appointments saved = service.saveAppointments(appointment);
+        return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }
 
     @PutMapping("/{id}")
-    public Appointments updateAppointments(@PathVariable int id, @RequestBody Appointments updatedAppointments) {
-        return service.updateAppointments(id, updatedAppointments);
+    public ResponseEntity<Appointments> updateAppointments(@PathVariable int id, 
+                                                           @RequestBody Appointments updatedAppointments) {
+        Appointments updated = service.updateAppointments(id, updatedAppointments);
+        return updated != null 
+            ? ResponseEntity.ok(updated) 
+            : ResponseEntity.notFound().build();
     }
 
     @DeleteMapping("/{id}")
-    public void deleteAppointments(@PathVariable int id) {
+    public ResponseEntity<Void> deleteAppointments(@PathVariable int id) {
         service.deleteAppointments(id);
+        return ResponseEntity.noContent().build();
     }
 }
