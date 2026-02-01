@@ -8,29 +8,8 @@ using System.Threading.Tasks;
 
 namespace ErronkaTxat
 {
-   /* internal class ZerbitzariLotura()
+    public class ZerbitzariLotura
     {
-        public int Hasi()
-        {
-            // Zerbitzariarekin komunikatzeko behar diren datuak: IP helbidea eta portu-zenbakia.
-            string zerbitzariIPa = "127.0.0.1";
-            Int32 port = 13000;
-            // Guk definitutako klasearen objektua sortu.
-            TCPClient bezeroAplikazioa = new TCPClient();
-            // Konektatu zerbitzarira.
-            bezeroAplikazioa.Konektatu(zerbitzariIPa, port);
-            // Bidali datuak zerbitzarira.
-            bezeroAplikazioa.BidaliDatuak();
-            // Jasotako erantzuna kudeatu.
-            bezeroAplikazioa.ErakutsiErantzuna();
-            // Itxi konexio danak.
-            bezeroAplikazioa.Itxi();
-
-            Console.WriteLine("\nSakatu <ENTER> bukatzeko...");
-            Console.Read();
-            return 0;
-        }
-
         // Klasearen atributuak.
 
         // Bezero socket-a.
@@ -44,31 +23,19 @@ namespace ErronkaTxat
         StreamReader sr = null;
         StreamWriter sw = null;
 
-        /**
-         * Eraikitzailea.
-         
-        public void Konektat()
-        {
-
-        }
+        public ZerbitzariLotura(){}
 
         /**
          * Konektatu emandako ip helbide eta portu-zenbakia daukan zerbitzarira.
-         
-        public void Konektatu()
+         */
+        public void Konektatu(String ip, Int32 portu)
         {
             try
             {
-                // Zerbitzariarekin komunikatzeko behar diren datuak: IP helbidea eta portu-zenbakia.
-                string zerbIP = "127.0.0.1";
-                Int32 portu = 13000;
-                // Guk definitutako klasearen objektua sortu.
-                TCPClient bezAplik = new TCPClient(zerbIP,portu);
-
                 // Bezero socket-a sortu. Hemen konexioa irekitzen da ere bai.
-                //this.client = new TcpClient(server, port);
+                this.client = new TcpClient(ip, portu);
                 // Stream-a ateratzen dugu.
-                this.str = bezAplik.GetStream();
+                this.str = this.client.GetStream();
                 // StreamReader eta StreamWriter objektuak datuak era eroso baten bidaltzen usten digu, Kontsolatik idazten egongo bagenu bezala.
                 this.sr = new StreamReader(this.str);
                 this.sw = new StreamWriter(this.str);
@@ -82,16 +49,16 @@ namespace ErronkaTxat
 
         /**
          * Bidali zerbitzariari kontsolan irakurritako esaldia letra larrietara bihur dezan.
-         
-        private void BidaliDatuak(string erab)
+         */
+        private void BidaliDatuak()
         {
             try
             {
                 // Irakurri kontsolatik esaldia.
                 Console.WriteLine("Letra larrietara bihurtu nahi duzun testua idatzi:");
-                string mezua = Txata.KKK();
+                string data = Console.ReadLine();
                 // Bidali esaldia saretik zehar sortutako socket-a erabilita.
-                this.sw.WriteLine(mezua);
+                this.sw.WriteLine(data);
                 // Bidali <EOF> mezua zerbitzariari bidalketa bukatu duela adierazteko.
                 this.sw.WriteLine("<EOF>");
                 // Ez ahaztu buffer-a husteaz!
@@ -106,7 +73,7 @@ namespace ErronkaTxat
 
         /**
          * Irakurri zerbitzariak bidalitako erantzuna eta erakutsi kontsolatik.
-         
+         */
         private void ErakutsiErantzuna()
         {
             try
@@ -130,7 +97,7 @@ namespace ErronkaTxat
 
         /**
          * Itxi konexio danak.
-         
+         */
         private void Itxi()
         {
             try
@@ -146,10 +113,29 @@ namespace ErronkaTxat
                 Console.WriteLine("Konexioak ezin izan dira itxi: {0}", e);
             }
         }
-        
+
         /**
          * Main metodoa, programa hemen hasten da.
-         
-        
-    }*/
+         */
+        public static int Main(String[] args)
+        {
+            // Zerbitzariarekin komunikatzeko behar diren datuak: IP helbidea eta portu-zenbakia.
+            string zerbitzariIPa = "127.0.0.1";
+            Int32 port = 13000;
+            // Guk definitutako klasearen objektua sortu.
+            ZerbitzariLotura bezeroAplikazioa = new ZerbitzariLotura();
+            // Konektatu zerbitzarira.
+            bezeroAplikazioa.Konektatu(zerbitzariIPa, port);
+            // Bidali datuak zerbitzarira.
+            bezeroAplikazioa.BidaliDatuak();
+            // Jasotako erantzuna kudeatu.
+            bezeroAplikazioa.ErakutsiErantzuna();
+            // Itxi konexio danak.
+            bezeroAplikazioa.Itxi();
+
+            Console.WriteLine("\nSakatu <ENTER> bukatzeko...");
+            Console.Read();
+            return 0;
+        }
+    }
 }

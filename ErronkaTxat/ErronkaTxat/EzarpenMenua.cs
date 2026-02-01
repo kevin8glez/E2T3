@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ErronkaTxat
 {
@@ -20,6 +21,13 @@ namespace ErronkaTxat
         private void EzarpenMenua_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int portu = Int32.Parse(Portua.Text);
+            ZerbitzariLotura zerb = new ZerbitzariLotura();
+            zerb.Konektatu(IPa.Text, portu);
         }
     }
 }

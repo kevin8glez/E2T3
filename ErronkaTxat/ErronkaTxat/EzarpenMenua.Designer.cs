@@ -31,8 +31,8 @@
             button1 = new Button();
             label1 = new Label();
             label2 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            IPa = new TextBox();
+            Portua = new TextBox();
             label4 = new Label();
             SuspendLayout();
             // 
@@ -44,6 +44,7 @@
             button1.TabIndex = 0;
             button1.Text = "Gorde";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // label1
             // 
@@ -63,19 +64,19 @@
             label2.TabIndex = 2;
             label2.Text = "Portua";
             // 
-            // textBox1
+            // IPa
             // 
-            textBox1.Location = new Point(173, 128);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 3;
+            IPa.Location = new Point(173, 128);
+            IPa.Name = "IPa";
+            IPa.Size = new Size(125, 27);
+            IPa.TabIndex = 3;
             // 
-            // textBox2
+            // Portua
             // 
-            textBox2.Location = new Point(173, 192);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(125, 27);
-            textBox2.TabIndex = 4;
+            Portua.Location = new Point(173, 192);
+            Portua.Name = "Portua";
+            Portua.Size = new Size(125, 27);
+            Portua.TabIndex = 4;
             // 
             // label4
             // 
@@ -93,8 +94,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(409, 342);
             Controls.Add(label4);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(Portua);
+            Controls.Add(IPa);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(button1);
@@ -111,8 +112,8 @@
         private Button button1;
         private Label label1;
         private Label label2;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox IPa;
+        private TextBox Portua;
         private Label label4;
     }
 }
