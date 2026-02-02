@@ -51,7 +51,6 @@ public class AppointmentsService {
         repository.deleteById(id);
     }
     
-    // MÉTODO MODIFICADO
     public Appointments updateAppointments(int id, Appointments updatedAppointments) {
         Appointments existingAppointment = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Appointment not found with id " + id));

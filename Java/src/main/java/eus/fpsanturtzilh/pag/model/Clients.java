@@ -1,12 +1,16 @@
 package eus.fpsanturtzilh.pag.model;
 
 import java.time.LocalDateTime;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
@@ -29,9 +33,6 @@ public class Clients {
     @Column(name = "surname")
     private String surname;
     
-    @OneToOne(mappedBy = "client")
-    private Users user;
-    
     @Column(name = "phone")
     private String phone;
     
@@ -40,6 +41,15 @@ public class Clients {
     
     @Column(name = "home_client")
     private Boolean homeClient;
+    
+    
+    @OneToOne(mappedBy = "client")
+    @JsonIgnore
+    private Users user;
+    
+    @OneToMany(mappedBy = "client")
+    @JsonIgnore  
+    private List<Appointments> appointments;
     
     @Column(name = "created_at")
     private LocalDateTime createdAt;

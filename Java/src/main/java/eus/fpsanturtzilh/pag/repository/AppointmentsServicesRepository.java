@@ -11,5 +11,5 @@ public interface AppointmentsServicesRepository extends JpaRepository<Appointmen
     
     List<AppointmentsServices> findByServiceId(int serviceId);
     
-    Optional<AppointmentsServices> findByAppointmentIdAndServiceId(int appointmentId, Long serviceId);
+    Optional<AppointmentsServices> findByAppointmentIdAndServiceId(int appointmentId, int serviceId);
 }

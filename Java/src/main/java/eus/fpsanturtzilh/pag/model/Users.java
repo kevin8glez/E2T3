@@ -2,6 +2,7 @@ package eus.fpsanturtzilh.pag.model;
 
 import java.time.LocalDateTime;
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -33,6 +34,9 @@ public class Users {
     
     @Column(name = "rol", length = 50)
     private String rol;
+    
+    @Column(name = "pasahitza", length = 50)
+    private String pasahitza;
     
     @Column(name = "created_at")
     private LocalDateTime createdAt;

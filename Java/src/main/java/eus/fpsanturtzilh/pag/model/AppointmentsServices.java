@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 public class AppointmentsServices {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private int id;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(
@@ -33,7 +33,7 @@ public class AppointmentsServices {
 	)
 	private Appointments appointment;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(
 	    name = "service_id",
 	    foreignKey = @jakarta.persistence.ForeignKey(name = "fk_appointmentsservices_services"),

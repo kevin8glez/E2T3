@@ -1,6 +1,9 @@
 package eus.fpsanturtzilh.pag.model;
 
 import java.time.LocalDateTime;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,6 +13,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
@@ -32,8 +36,7 @@ public class Students {
     @Column(name = "surname")
     private String surname;
     
-    @OneToOne(mappedBy = "student")
-    private Users user;
+    
     
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(
@@ -42,6 +45,18 @@ public class Students {
         referencedColumnName = "id"
     )
     private Groups group;
+    
+    @OneToOne(mappedBy = "student")
+    @JsonIgnore
+    private Users user;
+    
+    @OneToMany(mappedBy = "student")
+    @JsonIgnore  
+    private List<Appointments> appointments;
+    
+    @OneToMany(mappedBy = "student")
+    @JsonIgnore
+    private List<Shifts> shifts;
     
     @Column(name = "created_at")
     private LocalDateTime createdAt;

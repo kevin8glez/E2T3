@@ -24,7 +24,7 @@ import lombok.NoArgsConstructor;
 public class Schedules {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(
