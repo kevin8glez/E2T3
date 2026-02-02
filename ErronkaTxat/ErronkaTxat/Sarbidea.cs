@@ -23,9 +23,18 @@ namespace erronkaTxat
 
         private void sartuBotoia_Click(object sender, EventArgs e)
         {
-            apiLotura api = new apiLotura();
+            /*apiLotura api = new apiLotura();
             api.erabZiur(erabTextBox.Text);
-            api.pasaZiur(pasahitzTextBox.Text);
+            api.pasaZiur(pasahitzTextBox.Text);*/
+
+            Txata tx = new Txata();
+            tx.Show();
+            this.Hide();
+        }
+
+        public void sarErak()
+        {
+            this.Show();
         }
 
         /*private void Sarbidea_Load(object sender, EventArgs e)

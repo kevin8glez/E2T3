@@ -1,4 +1,5 @@
-﻿using System;
+﻿using erronkaTxat;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,7 +25,9 @@ namespace ErronkaTxat
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //k
+            this.Close();
+            Sarbidea sar = new Sarbidea();
+            sar.sarErak();
         }
     }
 }

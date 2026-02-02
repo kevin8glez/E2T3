@@ -3,7 +3,6 @@ C:\Users\Ikasle\Desktop\E2T3\erronkaTxat\erronkaTxat\bin\Debug\net8.0-windows\er
 C:\Users\Ikasle\Desktop\E2T3\erronkaTxat\erronkaTxat\bin\Debug\net8.0-windows\erronkaTxat.runtimeconfig.json
 C:\Users\Ikasle\Desktop\E2T3\erronkaTxat\erronkaTxat\bin\Debug\net8.0-windows\erronkaTxat.dll
 C:\Users\Ikasle\Desktop\E2T3\erronkaTxat\erronkaTxat\bin\Debug\net8.0-windows\erronkaTxat.pdb
-C:\Users\Ikasle\Desktop\E2T3\erronkaTxat\erronkaTxat\obj\Debug\net8.0-windows\erronkaTxat.Form1.resources
 C:\Users\Ikasle\Desktop\E2T3\erronkaTxat\erronkaTxat\obj\Debug\net8.0-windows\erronkaTxat.csproj.GenerateResource.cache
 C:\Users\Ikasle\Desktop\E2T3\erronkaTxat\erronkaTxat\obj\Debug\net8.0-windows\erronkaTxat.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Ikasle\Desktop\E2T3\erronkaTxat\erronkaTxat\obj\Debug\net8.0-windows\erronkaTxat.AssemblyInfoInputs.cache
@@ -38,3 +37,7 @@ C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0-windows\r
 C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0-windows\ErronkaTxat.Txata.resources
 C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0-windows\ErronkaTxat.EzarpenMenua.resources
 C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0-windows\ErronkaTxat.Froga.resources
+C:\Users\Ikasle\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0-windows\ErronkaTxat.EzarpenMenua.resources
+C:\Users\Ikasle\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0-windows\ErronkaTxat.Froga.resources
+C:\Users\Ikasle\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0-windows\erronkaTxat.Sarbidea.resources
+C:\Users\Ikasle\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0-windows\ErronkaTxat.Txata.resources

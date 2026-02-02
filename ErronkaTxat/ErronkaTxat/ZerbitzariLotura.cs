@@ -117,7 +117,7 @@ namespace ErronkaTxat
         /**
          * Main metodoa, programa hemen hasten da.
          */
-        public static int Main(String[] args)
+        /*public static int Main(String[] args)
         {
             // Zerbitzariarekin komunikatzeko behar diren datuak: IP helbidea eta portu-zenbakia.
             string zerbitzariIPa = "127.0.0.1";
@@ -136,6 +136,6 @@ namespace ErronkaTxat
             Console.WriteLine("\nSakatu <ENTER> bukatzeko...");
             Console.Read();
             return 0;
-        }
+        }*/
     }
 }
