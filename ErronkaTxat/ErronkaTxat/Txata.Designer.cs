@@ -37,19 +37,21 @@
             // bidaliBotoia
             // 
             bidaliBotoia.BackColor = Color.FromArgb(128, 255, 128);
-            bidaliBotoia.Location = new Point(657, 328);
+            bidaliBotoia.Location = new Point(575, 246);
+            bidaliBotoia.Margin = new Padding(3, 2, 3, 2);
             bidaliBotoia.Name = "bidaliBotoia";
-            bidaliBotoia.Size = new Size(119, 38);
+            bidaliBotoia.Size = new Size(104, 28);
             bidaliBotoia.TabIndex = 0;
             bidaliBotoia.Text = "Bidali";
             bidaliBotoia.UseVisualStyleBackColor = false;
             // 
             // gureMezua
             // 
-            gureMezua.Location = new Point(26, 328);
+            gureMezua.Location = new Point(23, 246);
+            gureMezua.Margin = new Padding(3, 2, 3, 2);
             gureMezua.Multiline = true;
             gureMezua.Name = "gureMezua";
-            gureMezua.Size = new Size(625, 67);
+            gureMezua.Size = new Size(547, 51);
             gureMezua.TabIndex = 1;
             gureMezua.TextChanged += gureMezua_TextChanged;
             // 
@@ -57,17 +59,19 @@
             // 
             panel1.BackColor = Color.FromArgb(224, 224, 224);
             panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Location = new Point(26, 26);
+            panel1.Location = new Point(23, 20);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(750, 268);
+            panel1.Size = new Size(656, 202);
             panel1.TabIndex = 2;
             // 
             // irtenBotoia
             // 
             irtenBotoia.BackColor = Color.Red;
-            irtenBotoia.Location = new Point(657, 388);
+            irtenBotoia.Location = new Point(575, 291);
+            irtenBotoia.Margin = new Padding(3, 2, 3, 2);
             irtenBotoia.Name = "irtenBotoia";
-            irtenBotoia.Size = new Size(119, 38);
+            irtenBotoia.Size = new Size(104, 28);
             irtenBotoia.TabIndex = 0;
             irtenBotoia.Text = "Irten";
             irtenBotoia.UseVisualStyleBackColor = false;
@@ -75,14 +79,16 @@
             // 
             // Txata
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(700, 338);
             Controls.Add(irtenBotoia);
             Controls.Add(panel1);
             Controls.Add(gureMezua);
             Controls.Add(bidaliBotoia);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Txata";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Txata";
             ResumeLayout(false);
             PerformLayout();
