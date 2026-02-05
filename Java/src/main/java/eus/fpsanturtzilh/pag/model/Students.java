@@ -36,8 +36,6 @@ public class Students {
     @Column(name = "surname")
     private String surname;
     
-    
-    
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(
         name = "group_id",
