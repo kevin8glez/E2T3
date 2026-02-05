@@ -102,7 +102,7 @@
             Name = "EzarpenMenua";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Ezarpenak";
-            Load += EzarpenMenua_Load;
+            //Load += EzarpenMenua_Load;
             ResumeLayout(false);
             PerformLayout();
         }
