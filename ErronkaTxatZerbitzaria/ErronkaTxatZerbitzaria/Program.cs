@@ -56,7 +56,7 @@ class MyTcpMultipleListener
                 bezeroZenbakia++;
                 Console.WriteLine("Bezero berri bat konektatu da: Bezero-" + bezeroZenbakia);
                 // Kudeatu bezeroaren eskaera hari ezberdin baten, horrela hurrengo bezero baten konexioa kudeatu ahalko da.
-                Task.Run(() => this.BezeraKudeatu(socketcliente, bezeroZenbakia));
+                Task.Run(() => this.BezeroaKudeatu(socketcliente, bezeroZenbakia));
 
                 // Thread.Sleep(100);
             }
@@ -71,7 +71,7 @@ class MyTcpMultipleListener
      * Bezerotik jasotako informazioa irakurri <EOF> jaso arte.
      * Ondoren, bezeroari jasotako mezua letra larriekin bueltatu.
      */
-    private void BezeraKudeatu(TcpClient socket, int bezeroZenbakia)
+    private void BezeroaKudeatu(TcpClient socket, int bezeroZenbakia)
     {
         // Stream-a ateratzen dugu.
         NetworkStream stream = socket.GetStream();

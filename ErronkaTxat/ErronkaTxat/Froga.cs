@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ErronkaTxat
 {
-    public partial class Froga : Form
+    public partial class Oharra : Form
     {
-        public Froga()
+        public Oharra()
         {
             InitializeComponent();
         }

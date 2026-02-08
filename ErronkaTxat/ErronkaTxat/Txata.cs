@@ -13,6 +13,8 @@ namespace ErronkaTxat
 {
     public partial class Txata : Form
     {
+        private Sarbidea sar;
+        private ZerbitzariLotura zerb;
         public Txata()
         {
             InitializeComponent();
@@ -23,11 +25,27 @@ namespace ErronkaTxat
             //k
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void Erabiltzailea(string erab)
+        {
+            this.erabiltzailea.Text = erab;
+        }
+
+        private void TxataItxi(object sender, EventArgs e)
         {
             this.Close();
-            Sarbidea sar = new Sarbidea();
             sar.sarErak();
+        }
+
+        public void txataEguneratu(string mezua)
+        {
+            //this.txatPanela.Items.Clear();
+            this.txatPanela.Items.Add(mezua);
+        }
+
+        private void bidaliBotoia_Click(object sender, EventArgs e)
+        {
+            zerb.BidaliDatuak(erabiltzailea.Text, gureMezua.Text);
+            gureMezua.ResetText();
         }
     }
 }

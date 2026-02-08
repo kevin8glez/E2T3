@@ -8,7 +8,7 @@ namespace ErronkaTxat
 {
     internal class apiLotura()
     {
-        Froga fr = new Froga();
+        Oharra fr = new Oharra();
 
         public void erabZiur(string erab)
         {

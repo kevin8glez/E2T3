@@ -23,22 +23,30 @@ namespace ErronkaTxat
         StreamReader sr = null;
         StreamWriter sw = null;
 
+        private Txata tx = new Txata();
+
         public ZerbitzariLotura(){}
 
         /**
          * Konektatu emandako ip helbide eta portu-zenbakia daukan zerbitzarira.
          */
-        public void Konektatu(String ip, Int32 portu)
+        public void Konektatu(String ip, string portu)
         {
             try
             {
                 // Bezero socket-a sortu. Hemen konexioa irekitzen da ere bai.
-                this.client = new TcpClient(ip, portu);
+                int portua = Int32.Parse(portu);
+                this.client = new TcpClient(ip, portua);
+
+                Oharra oh = new Oharra();
+                oh.TestuaAldatuErab("Ondo");
+                oh.TestuaAldatuPasa("Biak jasota");
+                oh.Show();
                 // Stream-a ateratzen dugu.
-                this.str = this.client.GetStream();
+                //this.str = this.client.GetStream();
                 // StreamReader eta StreamWriter objektuak datuak era eroso baten bidaltzen usten digu, Kontsolatik idazten egongo bagenu bezala.
-                this.sr = new StreamReader(this.str);
-                this.sw = new StreamWriter(this.str);
+                //this.sr = new StreamReader(this.str);
+                //this.sw = new StreamWriter(this.str);
 
             }
             catch (Exception e)
@@ -50,15 +58,18 @@ namespace ErronkaTxat
         /**
          * Bidali zerbitzariari kontsolan irakurritako esaldia letra larrietara bihur dezan.
          */
-        private void BidaliDatuak()
+        public void BidaliDatuak(string erab, string mezua)
         {
             try
             {
                 // Irakurri kontsolatik esaldia.
-                Console.WriteLine("Letra larrietara bihurtu nahi duzun testua idatzi:");
-                string data = Console.ReadLine();
+                //Console.WriteLine("Letra larrietara bihurtu nahi duzun testua idatzi:");
+                //string data = Console.ReadLine();
                 // Bidali esaldia saretik zehar sortutako socket-a erabilita.
-                this.sw.WriteLine(data);
+                string[] erabMezu;
+                erabMezu[0] = erab;
+                erabMezu[1] = mezua;
+                this.sw.WriteLine(erabMezu);
                 // Bidali <EOF> mezua zerbitzariari bidalketa bukatu duela adierazteko.
                 this.sw.WriteLine("<EOF>");
                 // Ez ahaztu buffer-a husteaz!
@@ -74,20 +85,22 @@ namespace ErronkaTxat
         /**
          * Irakurri zerbitzariak bidalitako erantzuna eta erakutsi kontsolatik.
          */
-        private void ErakutsiErantzuna()
+        public void ErakutsiErantzuna()
         {
             try
             {
                 // Zerbitzariak bidalitako informazioa hemen gortzen joango gara.
-                string data = string.Empty;
+                string mezua = string.Empty;
                 // <EOF> jasotzen ez dugun bitartean, datuak irakurri.
-                while (!data.Contains("<EOF>"))
+                while (!mezua.Contains("<EOF>"))
                 {
                     // Gehitu irakurritako informazioa data aldagaiara.
-                    data += sr.ReadLine();
+                    mezua += sr.ReadLine();
                 }
                 // Kontsolatik erakutsi jasotako esaldia zer gertatzen ari den ikusteko.
-                Console.WriteLine(data);
+                Console.WriteLine(mezua);
+
+                tx.txataEguneratu(mezua);
             }
             catch (Exception e)
             {

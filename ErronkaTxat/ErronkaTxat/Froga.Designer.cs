@@ -1,6 +1,6 @@
 ﻿namespace ErronkaTxat
 {
-    partial class Froga
+    partial class Oharra
     {
         /// <summary>
         /// Required designer variable.
@@ -52,14 +52,15 @@
             label2.TabIndex = 1;
             label2.Text = "BADABIL";
             // 
-            // Froga
+            // Oharra
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(313, 258);
+            ClientSize = new Size(473, 258);
             Controls.Add(label2);
             Controls.Add(label1);
-            Name = "Froga";
+            Name = "Oharra";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Froga";
             ResumeLayout(false);
             PerformLayout();

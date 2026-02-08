@@ -1,5 +1,6 @@
 using ErronkaTxat;
 using System;
+using System.IO;
 using System.Net;
 
 namespace erronkaTxat
@@ -27,9 +28,43 @@ namespace erronkaTxat
             api.erabZiur(erabTextBox.Text);
             api.pasaZiur(pasahitzTextBox.Text);*/
 
-            Txata tx = new Txata();
-            tx.Show();
-            this.Hide();
+            string karpetaPath = Path.Combine(Directory.GetParent(Application.StartupPath).Parent.Parent.FullName, "Lotura");
+            string fitxPath = Path.Combine(karpetaPath, "lotura.txt");
+            string ip = "k", portu = "k";
+
+            if (!File.Exists(fitxPath))
+            {
+                Oharra fr = new Oharra();
+                fr.TestuaAldatuErab("Lotura-daturik gabe");
+                fr.TestuaAldatuPasa("Ezarpenetara jo");
+                fr.Show();
+            }
+            else
+            {
+                try
+                {
+                    string[] lerroak = File.ReadAllLines(fitxPath);
+
+                    ip = lerroak[0].Split(':')[1].Trim();
+                    portu = lerroak[1].Split(':')[1].Trim();
+
+                    //k
+
+                }
+                catch
+                {
+                    Oharra fr = new Oharra();
+                    fr.TestuaAldatuErab("Ezarpenetara jo");
+                }
+
+                ZerbitzariLotura lot = new ZerbitzariLotura();
+                lot.Konektatu(ip, portu);
+
+                Txata tx = new Txata();
+                tx.Erabiltzailea(erabTextBox.Text);
+                tx.Show();
+                this.Hide();
+            }
         }
 
         public void sarErak()
