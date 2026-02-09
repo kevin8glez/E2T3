@@ -1,18 +1,18 @@
+import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
-import { IonicModule } from '@ionic/angular';
+import { LangileakPage } from './langileak.page';
+import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
 import { LangileakPageRoutingModule } from './langileak-routing.module';
 
-import { LangileakPage } from './langileak.page';
-
 @NgModule({
   imports: [
+    IonicModule,
     CommonModule,
     FormsModule,
-    IonicModule,
+    ExploreContainerComponentModule,
     LangileakPageRoutingModule
   ],
   declarations: [LangileakPage]

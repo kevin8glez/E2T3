@@ -20,6 +20,10 @@ const routes: Routes = [
         loadChildren: () => import('../hitzorduak/hitzorduak.module').then(m => m.HitzorduakPageModule)
       },
       {
+        path: 'langileak',
+        loadChildren: () => import('../langileak/langileak.module').then(m => m.LangileakPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/bezeroak',
         pathMatch: 'full'

@@ -1,17 +1,51 @@
-<ion-header [translucent]="true">
+<ion-header translucent="true">
   <ion-toolbar>
-    <ion-title>
-      Zerbitzuak
-    </ion-title>
+    <ion-title>Zerbitzuak</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content fullscreen="true" class="services-content">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Zerbitzuak</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Zerbitzuak page"></app-explore-container>
+  <ion-card *ngFor="let bloque of servicios" class="service-card">
+    <ion-card-header>
+      <ion-card-title>{{ bloque.categoria }}</ion-card-title>
+      <ion-card-subtitle *ngIf="bloque.nota">
+        {{ bloque.nota }}
+      </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list lines="none">
+        <ion-item *ngFor="let item of bloque.items" class="service-item">
+          <ion-label>
+            <h3>{{ item.nombre }}</h3>
+            <p>
+              <ion-icon name="time-outline"></ion-icon>
+              {{ item.tiempo }}
+            </p>
+          </ion-label>
+
+          <div class="price">
+            {{ item.precio }}
+          </div>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="info-card">
+    <ion-card-content>
+      <p>
+        Los precios pueden variar según la cantidad de producto utilizado.
+      </p>
+      <p>
+        Fijadores, acondicionadores, mascarillas y ampollas se cobran aparte.
+      </p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
