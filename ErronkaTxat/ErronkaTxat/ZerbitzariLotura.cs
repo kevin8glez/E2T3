@@ -38,15 +38,11 @@ namespace ErronkaTxat
                 int portua = Int32.Parse(portu);
                 this.client = new TcpClient(ip, portua);
 
-                Oharra oh = new Oharra();
-                oh.TestuaAldatuErab("Ondo");
-                oh.TestuaAldatuPasa("Biak jasota");
-                oh.Show();
                 // Stream-a ateratzen dugu.
-                //this.str = this.client.GetStream();
+                this.str = this.client.GetStream();
                 // StreamReader eta StreamWriter objektuak datuak era eroso baten bidaltzen usten digu, Kontsolatik idazten egongo bagenu bezala.
-                //this.sr = new StreamReader(this.str);
-                //this.sw = new StreamWriter(this.str);
+                this.sr = new StreamReader(this.str);
+                this.sw = new StreamWriter(this.str);
 
             }
             catch (Exception e)
@@ -62,16 +58,11 @@ namespace ErronkaTxat
         {
             try
             {
-                // Irakurri kontsolatik esaldia.
-                //Console.WriteLine("Letra larrietara bihurtu nahi duzun testua idatzi:");
-                //string data = Console.ReadLine();
                 // Bidali esaldia saretik zehar sortutako socket-a erabilita.
-                string[] erabMezu;
-                erabMezu[0] = erab;
-                erabMezu[1] = mezua;
+                string erabMezu = $"{erab}:{mezua}";
                 this.sw.WriteLine(erabMezu);
                 // Bidali <EOF> mezua zerbitzariari bidalketa bukatu duela adierazteko.
-                this.sw.WriteLine("<EOF>");
+                //this.sw.WriteLine("<EOF>");
                 // Ez ahaztu buffer-a husteaz!
                 this.sw.Flush();
 
@@ -111,7 +102,7 @@ namespace ErronkaTxat
         /**
          * Itxi konexio danak.
          */
-        private void Itxi()
+        public void Itxi()
         {
             try
             {

@@ -10,16 +10,31 @@ namespace ErronkaTxat
     {
         Oharra fr = new Oharra();
 
-        public void erabZiur(string erab)
+        public Boolean apira(string erab, string pasa)
         {
-            fr.Show();
-            fr.TestuaAldatuErab(erab);
+            //k
+            //string datuakApi = lotura();
+            return K; //bool izan behar da
         }
 
-        public void pasaZiur(string pasa)
+        public async Task lotura()
         {
-            fr.Show();
-            fr.TestuaAldatuPasa(pasa);
+            try{
+                HttpClient bezeroa = new HttpClient();
+                using (HttpResponseMessage erantzuna = await bezeroa.GetAsync("https://api.adibidea.eus/bidalariak?izena=jon&adina=30"))
+                {
+                    if (erantzuna.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        string erabAPI = await erantzuna.Content.ReadAsStringAsync();
+                        //k
+                    }
+                }
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine("AKATSA. Mezua :{0} ", ex.Message);
+            }
+
         }
     }
 }

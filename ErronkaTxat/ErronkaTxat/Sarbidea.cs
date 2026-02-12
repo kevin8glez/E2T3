@@ -12,58 +12,52 @@ namespace erronkaTxat
             InitializeComponent();
         }
 
-        /*private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            //k
-        }*/
-
         private void sartuBotoia_Click(object sender, EventArgs e)
         {
-            /*apiLotura api = new apiLotura();
-            api.erabZiur(erabTextBox.Text);
-            api.pasaZiur(pasahitzTextBox.Text);*/
-
-            string karpetaPath = Path.Combine(Directory.GetParent(Application.StartupPath).Parent.Parent.FullName, "Lotura");
-            string fitxPath = Path.Combine(karpetaPath, "lotura.txt");
-            string ip = "k", portu = "k";
-
-            if (!File.Exists(fitxPath))
+            apiLotura api = new apiLotura();
+            if(api.apira(erabTextBox.Text, pasahitzTextBox.Text))
             {
-                Oharra fr = new Oharra();
-                fr.TestuaAldatuErab("Lotura-daturik gabe");
-                fr.TestuaAldatuPasa("Ezarpenetara jo");
-                fr.Show();
+                string karpetaPath = Path.Combine(Directory.GetParent(Application.StartupPath).Parent.Parent.FullName, "Lotura");
+                string fitxPath = Path.Combine(karpetaPath, "lotura.txt");
+                string ip = "k", portu = "k";
+
+                if (!File.Exists(fitxPath))
+                {
+                    Oharra fr = new Oharra();
+                    fr.TestuaAldatuErab("Lotura-daturik gabe");
+                    fr.TestuaAldatuPasa("Ezarpenetara jo");
+                    fr.Show();
+                }
+                else
+                {
+                    try
+                    {
+                        string[] lerroak = File.ReadAllLines(fitxPath);
+
+                        ip = lerroak[0].Split(':')[1].Trim();
+                        portu = lerroak[1].Split(':')[1].Trim();
+
+                        //k
+                    }
+                    catch
+                    {
+                        Oharra fr = new Oharra();
+                        fr.TestuaAldatuErab("Ezarpenetara");
+                        fr.TestuaAldatuPasa("jo");
+                    }
+
+                    ZerbitzariLotura lot = new ZerbitzariLotura();
+                    lot.Konektatu(ip, portu);
+
+                    Txata tx = new Txata();
+                    tx.Erabiltzailea(erabTextBox.Text);
+                    tx.Show();
+                    this.Hide();
+                }
             }
             else
             {
-                try
-                {
-                    string[] lerroak = File.ReadAllLines(fitxPath);
-
-                    ip = lerroak[0].Split(':')[1].Trim();
-                    portu = lerroak[1].Split(':')[1].Trim();
-
-                    //k
-
-                }
-                catch
-                {
-                    Oharra fr = new Oharra();
-                    fr.TestuaAldatuErab("Ezarpenetara jo");
-                }
-
-                ZerbitzariLotura lot = new ZerbitzariLotura();
-                lot.Konektatu(ip, portu);
-
-                Txata tx = new Txata();
-                tx.Erabiltzailea(erabTextBox.Text);
-                tx.Show();
-                this.Hide();
+                //k
             }
         }
 
@@ -71,16 +65,6 @@ namespace erronkaTxat
         {
             this.Show();
         }
-
-        /*private void Sarbidea_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }*/
 
         private void EzarpenBotoia_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {

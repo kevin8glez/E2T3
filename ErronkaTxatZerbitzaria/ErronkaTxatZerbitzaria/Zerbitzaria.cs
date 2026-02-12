@@ -5,8 +5,21 @@ using System.Net.Sockets;
 using System.Text;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-class MyTcpMultipleListener
+class Zerbitzaria
 {
+    // Klasearen atributuak.
+
+    // Socket Listener.
+    TcpListener server;
+
+
+    // Eraikitzaile hutsa.
+    public Zerbitzaria(IPAddress ip, int port)
+    {
+        // TcpListener objektua sortzen dugu.
+        this.server = new TcpListener(ip, port);
+    }
+
     public static int Main(string[] args)
     {
         // Zerbitzariaren portu-zenbakia eta IP helbidea.
@@ -17,7 +30,7 @@ class MyTcpMultipleListener
 
         //IPAddress ip = IPAddress.Parse("127.0.0.1");
         // Guk definitutako klasearen objektua sortu.
-        MyTcpMultipleListener zerbitzariAplikazioa = new MyTcpMultipleListener(ip, portu);
+        Zerbitzaria zerbitzariAplikazioa = new Zerbitzaria(ip, portu);
         zerbitzariAplikazioa.EntzutenHasi();
         zerbitzariAplikazioa.Itxi();
 
@@ -25,19 +38,6 @@ class MyTcpMultipleListener
         Console.WriteLine("\nSakatu <ENTER> bukatzeko...");
         Console.Read();
         return 0;
-    }
-
-    // Klasearen atributuak.
-
-    // Socket Listener.
-    TcpListener server;
-
-
-    // Eraikitzaile hutsa.
-    public MyTcpMultipleListener(IPAddress ip, int port)
-    {
-        // TcpListener objektua sortzen dugu.
-        this.server = new TcpListener(ip, port);
     }
 
     private void EntzutenHasi()
@@ -49,14 +49,13 @@ class MyTcpMultipleListener
             Console.WriteLine("Bezero konexioak itxaroten...");
             // Bukle infinitu bat hainbat bezeroen eskaerak erantzun ahal izateko.
             int bezeroZenbakia = 0;
-            while (true)
+            while (bezeroZenbakia<=15)
             {
                 // Bezero baten konexio eskaera itxaroten gelditzen da.
                 TcpClient socketcliente = this.server.AcceptTcpClient();
                 bezeroZenbakia++;
-                Console.WriteLine("Bezero berri bat konektatu da: Bezero-" + bezeroZenbakia);
                 // Kudeatu bezeroaren eskaera hari ezberdin baten, horrela hurrengo bezero baten konexioa kudeatu ahalko da.
-                Task.Run(() => this.BezeroaKudeatu(socketcliente, bezeroZenbakia));
+                Task.Run(() => this.BezeroaKudeatu(socketcliente));
 
                 // Thread.Sleep(100);
             }
@@ -71,7 +70,7 @@ class MyTcpMultipleListener
      * Bezerotik jasotako informazioa irakurri <EOF> jaso arte.
      * Ondoren, bezeroari jasotako mezua letra larriekin bueltatu.
      */
-    private void BezeroaKudeatu(TcpClient socket, int bezeroZenbakia)
+    private void BezeroaKudeatu(TcpClient socket)
     {
         // Stream-a ateratzen dugu.
         NetworkStream stream = socket.GetStream();
@@ -90,11 +89,8 @@ class MyTcpMultipleListener
                 // KONTUZ: lerro BLOKEANTE bat, datuak jaso arte hemen gelditzen da exekuzioa.
                 data += reader.ReadLine();
             }
-            // Kontsolatik erakutsi jasotako esaldia zer gertatzen ari den ikusteko.
-            Console.WriteLine("Bezero-" + bezeroZenbakia + ": " + data);
-            // Bihurtu esaldia letra larrietara eta bidali.
-            writer.WriteLine(data.ToUpper());
-            // Buffer-a hustu, datuak bidali daitezen.
+
+            writer.WriteLine(data);
             writer.Flush();
         }
         catch (Exception e)
@@ -102,11 +98,12 @@ class MyTcpMultipleListener
             Console.WriteLine("Komunikazio errorea: {0}", e);
         }
 
-        // Itxi konexioak.
         writer.Close();
         reader.Close();
         stream.Close();
-        Console.WriteLine("Bezero-" + bezeroZenbakia + " konexioa itxita.");
+
+        // NORBAIT KONEKTATZEAN BERE IZENA HARTU TA "... KONEKTATU DA" TXATEAN IDATZI, DESKONEKTATZEAN BERDIN
+        //Console.WriteLine("Bezero-" + bezeroZenbakia + " konexioa itxita.");
     }
 
     /**
@@ -124,9 +121,4 @@ class MyTcpMultipleListener
             Console.WriteLine("Zerbitzaria ezin izan da geldit: {0}", e);
         }
     }
-
-    /**
-     * Main metodoa, programa hemen hasten da.
-     */
-    
 }

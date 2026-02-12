@@ -32,6 +32,7 @@ namespace ErronkaTxat
 
         private void TxataItxi(object sender, EventArgs e)
         {
+            zerb.Itxi();
             this.Close();
             sar.sarErak();
         }
