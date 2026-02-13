@@ -1,10 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Ikaslea\\Desktop\\E2T3\\ErronkaTxatZerbitzaria\\",
+  "WorkspaceRootPath": "C:\\Users\\Ikasle\\Desktop\\E2T3\\ErronkaTxatZerbitzaria\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2714160C-6497-4875-916A-BDCB6053EA34}|ErronkaTxatZerbitzaria\\ErronkaTxatZerbitzaria.csproj|c:\\users\\ikaslea\\desktop\\e2t3\\erronkatxatzerbitzaria\\erronkatxatzerbitzaria\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2714160C-6497-4875-916A-BDCB6053EA34}|ErronkaTxatZerbitzaria\\ErronkaTxatZerbitzaria.csproj|solutionrelative:erronkatxatzerbitzaria\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2714160C-6497-4875-916A-BDCB6053EA34}|ErronkaTxatZerbitzaria\\ErronkaTxatZerbitzaria.csproj|c:\\users\\ikasle\\desktop\\e2t3\\erronkatxatzerbitzaria\\erronkatxatzerbitzaria\\zerbitzaria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2714160C-6497-4875-916A-BDCB6053EA34}|ErronkaTxatZerbitzaria\\ErronkaTxatZerbitzaria.csproj|solutionrelative:erronkatxatzerbitzaria\\zerbitzaria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,12 +19,12 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Ikaslea\\Desktop\\E2T3\\ErronkaTxatZerbitzaria\\ErronkaTxatZerbitzaria\\Program.cs",
-              "RelativeDocumentMoniker": "ErronkaTxatZerbitzaria\\Program.cs",
-              "ToolTip": "C:\\Users\\Ikaslea\\Desktop\\E2T3\\ErronkaTxatZerbitzaria\\ErronkaTxatZerbitzaria\\Program.cs",
-              "RelativeToolTip": "ErronkaTxatZerbitzaria\\Program.cs",
-              "ViewState": "AgIAAEcAAAAAAAAAAAAgwEYAAAA/AAAAAAAAAA==",
+              "Title": "Zerbitzaria.cs",
+              "DocumentMoniker": "C:\\Users\\Ikasle\\Desktop\\E2T3\\ErronkaTxatZerbitzaria\\ErronkaTxatZerbitzaria\\Zerbitzaria.cs",
+              "RelativeDocumentMoniker": "ErronkaTxatZerbitzaria\\Zerbitzaria.cs",
+              "ToolTip": "C:\\Users\\Ikasle\\Desktop\\E2T3\\ErronkaTxatZerbitzaria\\ErronkaTxatZerbitzaria\\Zerbitzaria.cs",
+              "RelativeToolTip": "ErronkaTxatZerbitzaria\\Zerbitzaria.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFwAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-20T16:52:03.08Z",
               "EditorCaption": ""
