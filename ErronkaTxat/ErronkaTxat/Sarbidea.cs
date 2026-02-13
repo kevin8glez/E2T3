@@ -16,51 +16,68 @@ namespace erronkaTxat
         {
             apiLotura api = new apiLotura();
 
-            if(await api.lotura(erabTextBox.Text,pasahitzTextBox.Text))
-            {
-                string karpetaPath = Path.Combine(Directory.GetParent(Application.StartupPath).Parent.Parent.FullName, "Lotura");
-                string fitxPath = Path.Combine(karpetaPath, "lotura.txt");
-                string ip = "k", portu = "k";
-
-                if (!File.Exists(fitxPath))
-                {
-                    Oharra fr = new Oharra();
-                    fr.TestuaAldatuErab("Lotura-daturik gabe");
-                    fr.TestuaAldatuPasa("Ezarpenetara jo");
-                    fr.Show();
-                }
-                else
-                {
-                    try
-                    {
-                        string[] lerroak = File.ReadAllLines(fitxPath);
-
-                        ip = lerroak[0].Split(':')[1].Trim();
-                        portu = lerroak[1].Split(':')[1].Trim();
-
-                        //k
-                    }
-                    catch
-                    {
-                        Oharra fr = new Oharra();
-                        fr.TestuaAldatuErab("Ezarpenetara");
-                        fr.TestuaAldatuPasa("jo");
-                    }
-
-                    ZerbitzariLotura lot = new ZerbitzariLotura();
-                    lot.Konektatu(ip, portu);
-
-                    Txata tx = new Txata();
-                    tx.Erabiltzailea(erabTextBox.Text);
-                    tx.Show();
-                    this.Hide();
-                }
-            }
-            else
+            if (!await api.lotura(erabTextBox.Text, pasahitzTextBox.Text))
             {
                 Oharra fr = new Oharra();
                 fr.TestuaAldatuErab("Datuak");
                 fr.TestuaAldatuPasa("idatzi");
+                fr.Show();
+                return;
+            }
+
+            string karpetaPath = Path.Combine(Directory.GetParent(Application.StartupPath).Parent.Parent.FullName, "Lotura");
+            string fitxPath = Path.Combine(karpetaPath, "lotura.txt");
+            //string ip = "k", portu = "k";
+
+            if (!File.Exists(fitxPath))
+            {
+                Oharra fr = new Oharra();
+                fr.TestuaAldatuErab("Lotura-daturik gabe");
+                fr.TestuaAldatuPasa("Ezarpenetara jo");
+                fr.Show();
+                return;
+            }
+            
+            try
+            {
+                string[] lerroak = File.ReadAllLines(fitxPath);
+
+                if (lerroak.Length < 2)
+                {
+                    Oharra fr = new Oharra();
+                    fr.TestuaAldatuErab("Ezarpenetara");
+                    fr.TestuaAldatuPasa("jo");
+                    fr.Show();
+                    return;
+                }
+
+                string ip = lerroak[0].Split(':')[1].Trim();
+                string portu = lerroak[1].Split(':')[1].Trim();
+
+                //k
+
+                if (string.IsNullOrEmpty(ip) || string.IsNullOrEmpty(portu))
+                {
+                    Oharra fr = new Oharra();
+                    fr.TestuaAldatuErab("IP/portua");
+                    fr.TestuaAldatuPasa("hutsik");
+                    fr.Show();
+                    return;
+                }
+
+                ZerbitzariLotura lot = new ZerbitzariLotura();
+                lot.Konektatu(ip, portu);
+
+                Txata tx = new Txata();
+                tx.Erabiltzailea(erabTextBox.Text);
+                tx.Show();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                Oharra fr = new Oharra();
+                fr.TestuaAldatuErab("Akatsa");
+                fr.TestuaAldatuPasa(ex.Message);
                 fr.Show();
             }
         }
