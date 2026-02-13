@@ -12,10 +12,11 @@ namespace erronkaTxat
             InitializeComponent();
         }
 
-        private void sartuBotoia_Click(object sender, EventArgs e)
+        private async void sartuBotoia_Click(object sender, EventArgs e)
         {
             apiLotura api = new apiLotura();
-            if(api.apira(erabTextBox.Text, pasahitzTextBox.Text))
+
+            if(await api.lotura(erabTextBox.Text,pasahitzTextBox.Text))
             {
                 string karpetaPath = Path.Combine(Directory.GetParent(Application.StartupPath).Parent.Parent.FullName, "Lotura");
                 string fitxPath = Path.Combine(karpetaPath, "lotura.txt");
@@ -57,7 +58,10 @@ namespace erronkaTxat
             }
             else
             {
-                //k
+                Oharra fr = new Oharra();
+                fr.TestuaAldatuErab("Datuak");
+                fr.TestuaAldatuPasa("idatzi");
+                fr.Show();
             }
         }
 

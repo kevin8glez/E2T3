@@ -34,7 +34,7 @@ C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0-windows\r
 C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0-windows\ErronkaTxat.Txata.resources
 C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0-windows\ErronkaTxat.EzarpenMenua.resources
 C:\Users\Ikasle\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0-windows\ErronkaTxat.EzarpenMenua.resources
-C:\Users\Ikasle\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0-windows\ErronkaTxat.Froga.resources
 C:\Users\Ikasle\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0-windows\erronkaTxat.Sarbidea.resources
 C:\Users\Ikasle\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0-windows\ErronkaTxat.Txata.resources
 C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0-windows\ErronkaTxat.Oharra.resources
+C:\Users\Ikasle\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0-windows\ErronkaTxat.Oharra.resources
