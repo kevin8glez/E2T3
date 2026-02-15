@@ -73,6 +73,7 @@
             txatPanela.Name = "txatPanela";
             txatPanela.Size = new Size(750, 284);
             txatPanela.TabIndex = 2;
+            //txatPanela.SelectedIndexChanged += txatPanela_SelectedIndexChanged;
             // 
             // erabiltzailea
             // 

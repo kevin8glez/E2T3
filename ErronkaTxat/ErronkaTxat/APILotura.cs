@@ -25,11 +25,11 @@ namespace ErronkaTxat
                 string helbidea = $"http://ec2-54-196-47-191.compute-1.amazonaws.com:8081/api/users?username={Uri.EscapeDataString(erab)}&pasahitza={Uri.EscapeDataString(pasa)}";
                 using (HttpResponseMessage erantzuna = await bezeroa.GetAsync(helbidea))
                 {
-                    Oharra fr = new Oharra();
-                    fr.TestuaAldatuErab($"HTTP Egoera: {(int)erantzuna.StatusCode} - {erantzuna.StatusCode}");
                     string edukia = await erantzuna.Content.ReadAsStringAsync();
+                    /*Oharra fr = new Oharra();
+                    fr.TestuaAldatuErab($"HTTP Egoera: {(int)erantzuna.StatusCode} - {erantzuna.StatusCode}");
                     fr.TestuaAldatuPasa($"Erantzunaren edukia: {edukia}");
-                    fr.Show();
+                    fr.Show();*/
 
                     if (erantzuna.StatusCode == System.Net.HttpStatusCode.OK)
                     {
@@ -67,21 +67,9 @@ namespace ErronkaTxat
             }*/
             catch (Exception ex)
             {
-                Oharra fr = new Oharra();
-                fr.TestuaAldatuErab($"Espero gabeko errorea: {ex.Message}");
-                fr.Show();
+                MessageBox.Show(ex.Message, "Akatsa", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-        }
-
-        public class Erabiltzailea
-        {
-            public int id { get; set; }
-            public string username { get; set; }
-            public string password { get; set; }
-            public string email { get; set; }
-            public string role { get; set; }
-            public object student { get; set; }
         }
     }
 }

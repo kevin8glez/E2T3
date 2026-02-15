@@ -88,7 +88,13 @@ class Zerbitzaria
                 data += reader.ReadLine();
             }
 
+            Console.WriteLine("Bezero konexioak itxaroten...");
+
+            string mezua = data.Replace("<EOF>", "").Trim();
+            string erantzuna = $"Zerbitzariak jasota: {mezua}";
+
             writer.WriteLine(data);
+            writer.WriteLine("<EOF>");
             writer.Flush();
         }
         catch (Exception e)
@@ -99,6 +105,7 @@ class Zerbitzaria
         writer.Close();
         reader.Close();
         stream.Close();
+        socket.Close();
 
         // NORBAIT KONEKTATZEAN BERE IZENA HARTU TA "... KONEKTATU DA" TXATEAN IDATZI, DESKONEKTATZEAN BERDIN
         //Console.WriteLine("Bezero-" + bezeroZenbakia + " konexioa itxita.");

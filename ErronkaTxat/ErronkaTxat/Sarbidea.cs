@@ -17,27 +17,19 @@ namespace erronkaTxat
             apiLotura api = new apiLotura();
             //bool ontzat = await api.lotura(erabTextBox.Text, pasahitzTextBox.Text);
 
-            if (!await api.erabPasa(erabTextBox.Text, pasahitzTextBox.Text))
+            /*if (!await api.erabPasa(erabTextBox.Text, pasahitzTextBox.Text))
             {
-                Oharra fr = new Oharra();
-                fr.TestuaAldatuErab("idatziatko datuak");
-                fr.TestuaAldatuPasa("okerrak dira");
-                fr.Show();
-                //return;
+                MessageBox.Show("Idatzitako datuak okerrak dira", "Akatsa", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
-            {
+            {*/
                 string karpetaPath = Path.Combine(Directory.GetParent(Application.StartupPath).Parent.Parent.FullName, "Lotura");
                 string fitxPath = Path.Combine(karpetaPath, "lotura.txt");
                 //string ip = "k", portu = "k";
 
                 if (!File.Exists(fitxPath))
                 {
-                    Oharra fr = new Oharra();
-                    fr.TestuaAldatuErab("Lotura-daturik gabe");
-                    fr.TestuaAldatuPasa("Ezarpenetara jo");
-                    fr.Show();
-                    //return;
+                    MessageBox.Show("Lotura-daturik gabe, ezarpenetara jo", "Akatsa", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -71,29 +63,33 @@ namespace erronkaTxat
                         try
                         {
                             ZerbitzariLotura lot = new ZerbitzariLotura();
-                            lot.Konektatu(ip, portu);
+                            lot.Konektatu(ip,portu);
 
-                            Txata tx = new Txata();
-                            tx.Erabiltzailea(erabTextBox.Text);
-                            tx.Show();
-                            this.Hide();
+                            if (lot.KonexioOndo())  // Metodo hau gehitu behar duzu
+                            {
+                                MessageBox.Show("Lotura eginda", "Ondo", MessageBoxButtons.OK);
+                                Txata tx = new Txata(lot, this);
+                                tx.Erabiltzailea(erabTextBox.Text);
+                                tx.Show();
+                                this.Hide();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Konexioak huts egin du", "Akatsa", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
-                        catch
+                        catch(Exception ex)
                         {
-                            //k
+                            MessageBox.Show("Ezin izan da zerbitzarira konektatu. Egiaztatu konexioa eta berriz saiatu.\n\nErrorea: " + ex.Message,"Akatsa",MessageBoxButtons.OK,MessageBoxIcon.Error);
                         }
                     }
                     catch (Exception ex)
                     {
-                        Oharra fr = new Oharra();
-                        fr.TestuaAldatuErab("Akatsa");
-                        fr.TestuaAldatuPasa(ex.Message);
-                        fr.Show();
-
+                        MessageBox.Show(ex.Message, "Akatsa", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                 }
-            }
+            //}
 
                 
         }
