@@ -22,18 +22,16 @@ class Zerbitzaria
 
     public static int Main(string[] args)
     {
-        // Zerbitzariaren portu-zenbakia eta IP helbidea.
         int portu = 13000;
 
         IPHostEntry infoHost = Dns.GetHostEntry(Dns.GetHostName());
         IPAddress ip = infoHost.AddressList[1];
 
-        //IPAddress ip = IPAddress.Parse("127.0.0.1");
-        // Guk definitutako klasearen objektua sortu.
+        Console.WriteLine("Zure datuak:\nIP-a: "+ip+"\nPortua: "+portu+"\n");
+
         Zerbitzaria zerbitzariAplikazioa = new Zerbitzaria(ip, portu);
         zerbitzariAplikazioa.EntzutenHasi();
         zerbitzariAplikazioa.Itxi();
-
 
         Console.WriteLine("\nSakatu <ENTER> bukatzeko...");
         Console.Read();

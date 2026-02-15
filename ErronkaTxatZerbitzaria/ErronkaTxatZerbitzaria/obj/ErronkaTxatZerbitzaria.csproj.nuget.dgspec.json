@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ikasle\\Desktop\\E2T3\\ErronkaTxatZerbitzaria\\ErronkaTxatZerbitzaria\\ErronkaTxatZerbitzaria.csproj": {}
+    "C:\\Users\\Ikaslea\\Desktop\\E2T3\\ErronkaTxatZerbitzaria\\ErronkaTxatZerbitzaria\\ErronkaTxatZerbitzaria.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ikasle\\Desktop\\E2T3\\ErronkaTxatZerbitzaria\\ErronkaTxatZerbitzaria\\ErronkaTxatZerbitzaria.csproj": {
+    "C:\\Users\\Ikaslea\\Desktop\\E2T3\\ErronkaTxatZerbitzaria\\ErronkaTxatZerbitzaria\\ErronkaTxatZerbitzaria.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ikasle\\Desktop\\E2T3\\ErronkaTxatZerbitzaria\\ErronkaTxatZerbitzaria\\ErronkaTxatZerbitzaria.csproj",
+        "projectUniqueName": "C:\\Users\\Ikaslea\\Desktop\\E2T3\\ErronkaTxatZerbitzaria\\ErronkaTxatZerbitzaria\\ErronkaTxatZerbitzaria.csproj",
         "projectName": "ErronkaTxatZerbitzaria",
-        "projectPath": "C:\\Users\\Ikasle\\Desktop\\E2T3\\ErronkaTxatZerbitzaria\\ErronkaTxatZerbitzaria\\ErronkaTxatZerbitzaria.csproj",
-        "packagesPath": "C:\\Users\\Ikasle\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ikasle\\Desktop\\E2T3\\ErronkaTxatZerbitzaria\\ErronkaTxatZerbitzaria\\obj\\",
+        "projectPath": "C:\\Users\\Ikaslea\\Desktop\\E2T3\\ErronkaTxatZerbitzaria\\ErronkaTxatZerbitzaria\\ErronkaTxatZerbitzaria.csproj",
+        "packagesPath": "C:\\Users\\Ikaslea\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ikaslea\\Desktop\\E2T3\\ErronkaTxatZerbitzaria\\ErronkaTxatZerbitzaria\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Ikasle\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Ikaslea\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -65,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.311/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

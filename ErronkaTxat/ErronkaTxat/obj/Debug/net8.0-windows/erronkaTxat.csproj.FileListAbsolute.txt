@@ -38,3 +38,6 @@ C:\Users\Ikasle\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0-windows\er
 C:\Users\Ikasle\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0-windows\ErronkaTxat.Txata.resources
 C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0-windows\ErronkaTxat.Oharra.resources
 C:\Users\Ikasle\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0-windows\ErronkaTxat.Oharra.resources
+C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxat\ErronkaTxat\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0-windows\ErronkaTxat.csproj.AssemblyReference.cache
+C:\Users\Ikaslea\Desktop\E2T3\ErronkaTxat\ErronkaTxat\obj\Debug\net8.0-windows\ErronkaT.0523EC9B.Up2Date

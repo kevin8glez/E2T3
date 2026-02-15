@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "WH9SIKTM/LU=",
+  "dgSpecHash": "8jPXwxcxTCc=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ikasle\\Desktop\\E2T3\\ErronkaTxat\\ErronkaTxat\\ErronkaTxat.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Ikaslea\\Desktop\\E2T3\\ErronkaTxat\\ErronkaTxat\\ErronkaTxat.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Ikaslea\\.nuget\\packages\\newtonsoft.json\\13.0.4\\newtonsoft.json.13.0.4.nupkg.sha512"
+  ],
   "logs": []
 }

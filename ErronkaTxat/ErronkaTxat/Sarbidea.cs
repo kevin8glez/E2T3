@@ -15,71 +15,87 @@ namespace erronkaTxat
         private async void sartuBotoia_Click(object sender, EventArgs e)
         {
             apiLotura api = new apiLotura();
+            //bool ontzat = await api.lotura(erabTextBox.Text, pasahitzTextBox.Text);
 
-            if (!await api.lotura(erabTextBox.Text, pasahitzTextBox.Text))
+            if (!await api.erabPasa(erabTextBox.Text, pasahitzTextBox.Text))
             {
                 Oharra fr = new Oharra();
-                fr.TestuaAldatuErab("Datuak");
-                fr.TestuaAldatuPasa("idatzi");
+                fr.TestuaAldatuErab("idatziatko datuak");
+                fr.TestuaAldatuPasa("okerrak dira");
                 fr.Show();
-                return;
+                //return;
             }
-
-            string karpetaPath = Path.Combine(Directory.GetParent(Application.StartupPath).Parent.Parent.FullName, "Lotura");
-            string fitxPath = Path.Combine(karpetaPath, "lotura.txt");
-            //string ip = "k", portu = "k";
-
-            if (!File.Exists(fitxPath))
+            else
             {
-                Oharra fr = new Oharra();
-                fr.TestuaAldatuErab("Lotura-daturik gabe");
-                fr.TestuaAldatuPasa("Ezarpenetara jo");
-                fr.Show();
-                return;
-            }
-            
-            try
-            {
-                string[] lerroak = File.ReadAllLines(fitxPath);
+                string karpetaPath = Path.Combine(Directory.GetParent(Application.StartupPath).Parent.Parent.FullName, "Lotura");
+                string fitxPath = Path.Combine(karpetaPath, "lotura.txt");
+                //string ip = "k", portu = "k";
 
-                if (lerroak.Length < 2)
+                if (!File.Exists(fitxPath))
                 {
                     Oharra fr = new Oharra();
-                    fr.TestuaAldatuErab("Ezarpenetara");
-                    fr.TestuaAldatuPasa("jo");
+                    fr.TestuaAldatuErab("Lotura-daturik gabe");
+                    fr.TestuaAldatuPasa("Ezarpenetara jo");
                     fr.Show();
-                    return;
+                    //return;
                 }
-
-                string ip = lerroak[0].Split(':')[1].Trim();
-                string portu = lerroak[1].Split(':')[1].Trim();
-
-                //k
-
-                if (string.IsNullOrEmpty(ip) || string.IsNullOrEmpty(portu))
+                else
                 {
-                    Oharra fr = new Oharra();
-                    fr.TestuaAldatuErab("IP/portua");
-                    fr.TestuaAldatuPasa("hutsik");
-                    fr.Show();
-                    return;
+                    try
+                    {
+                        string[] lerroak = File.ReadAllLines(fitxPath);
+
+                        /*if (lerroak.Length < 2)
+                        {
+                            Oharra fr = new Oharra();
+                            fr.TestuaAldatuErab("Ezarpenetara");
+                            fr.TestuaAldatuPasa("jo");
+                            fr.Show();
+                            return;
+                        }*/
+
+                        string ip = lerroak[0].Split(':')[1].Trim();
+                        string portu = lerroak[1].Split(':')[1].Trim();
+
+                        //k
+
+                        /*if (string.IsNullOrEmpty(ip) || string.IsNullOrEmpty(portu))
+                        {
+                            Oharra fr = new Oharra();
+                            fr.TestuaAldatuErab("IP/portua");
+                            fr.TestuaAldatuPasa("hutsik");
+                            fr.Show();
+                            return;
+                        }*/
+
+                        try
+                        {
+                            ZerbitzariLotura lot = new ZerbitzariLotura();
+                            lot.Konektatu(ip, portu);
+
+                            Txata tx = new Txata();
+                            tx.Erabiltzailea(erabTextBox.Text);
+                            tx.Show();
+                            this.Hide();
+                        }
+                        catch
+                        {
+                            //k
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Oharra fr = new Oharra();
+                        fr.TestuaAldatuErab("Akatsa");
+                        fr.TestuaAldatuPasa(ex.Message);
+                        fr.Show();
+
+                    }
+
                 }
-
-                ZerbitzariLotura lot = new ZerbitzariLotura();
-                lot.Konektatu(ip, portu);
-
-                Txata tx = new Txata();
-                tx.Erabiltzailea(erabTextBox.Text);
-                tx.Show();
-                this.Hide();
             }
-            catch (Exception ex)
-            {
-                Oharra fr = new Oharra();
-                fr.TestuaAldatuErab("Akatsa");
-                fr.TestuaAldatuPasa(ex.Message);
-                fr.Show();
-            }
+
+                
         }
 
         public void sarErak()
