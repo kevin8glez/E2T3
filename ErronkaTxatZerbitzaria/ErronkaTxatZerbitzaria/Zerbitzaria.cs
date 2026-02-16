@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
@@ -7,16 +8,13 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 class Zerbitzaria
 {
-    // Klasearen atributuak.
+    private TcpListener server;
+    private ConcurrentDictionary<TcpClient, string> bezeroak = new ConcurrentDictionary<TcpClient, string>();
+    private int maxBezeroak = 15;
+    private object blokeoa = new object();
 
-    // Socket Listener.
-    TcpListener server;
-
-
-    // Eraikitzaile hutsa.
     public Zerbitzaria(IPAddress ip, int port)
     {
-        // TcpListener objektua sortzen dugu.
         this.server = new TcpListener(ip, port);
     }
 
@@ -42,20 +40,36 @@ class Zerbitzaria
     {
         try
         {
-            // Sistema Eragileari esaten diogu protu-zenbaki horretara heltzen diren paketeak gure aplikaziora bidali behar dituela.
             this.server.Start();
-            Console.WriteLine("Bezero konexioak itxaroten...");
-            // Bukle infinitu bat hainbat bezeroen eskaerak erantzun ahal izateko.
-            int bezeroZenbakia = 0;
-            while (bezeroZenbakia<=15)
-            {
-                // Bezero baten konexio eskaera itxaroten gelditzen da.
-                TcpClient socketcliente = this.server.AcceptTcpClient();
-                bezeroZenbakia++;
-                // Kudeatu bezeroaren eskaera hari ezberdin baten, horrela hurrengo bezero baten konexioa kudeatu ahalko da.
-                Task.Run(() => this.BezeroaKudeatu(socketcliente));
+            Console.WriteLine("Txat zerbitzaria martxan. Bezero konexioak itxaroten...");
+            Console.WriteLine($"Gehienez {maxBezeroak} erabiltzaile konekta daitezke aldi berean.\n");
 
-                // Thread.Sleep(100);
+            while (true)
+            {
+                TcpClient socketcliente = this.server.AcceptTcpClient();
+
+                if (bezeroak.Count < maxBezeroak)
+                {
+                    Task.Run(() => this.BezeroaKudeatu(socketcliente));
+                }
+                else
+                {
+                    try
+                    {
+                        NetworkStream stream = socketcliente.GetStream();
+                        StreamWriter writer = new StreamWriter(stream);
+                        writer.WriteLine("SISTEMA: Zerbitzaria beteta dago. Saiatu berriro geroago.");
+                        writer.WriteLine("<EOF>");
+                        writer.Flush();
+                        socketcliente.Close();
+
+                        Console.WriteLine("Konexioa ukatu: zerbitzaria beteta (15/15)");
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Errorea ukapen mezua bidaltzean: {ex.Message}");
+                    }
+                }
             }
         }
         catch (Exception e)
@@ -64,60 +78,129 @@ class Zerbitzaria
         }
     }
 
-    /**
-     * Bezerotik jasotako informazioa irakurri <EOF> jaso arte.
-     * Ondoren, bezeroari jasotako mezua letra larriekin bueltatu.
-     */
+    private async Task MezuaGuztiei(string mezua, TcpClient bidaltzailea = null)
+    {
+        List<Task> bidalketak = new List<Task>();
+
+        foreach (var bezero in bezeroak.Keys)
+        {
+            try
+            {
+                if (bezero.Connected)
+                {
+                    NetworkStream stream = bezero.GetStream();
+                    StreamWriter writer = new StreamWriter(stream);
+
+                    await writer.WriteLineAsync(mezua);
+                    await writer.WriteLineAsync("<EOF>");
+                    await writer.FlushAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Errorea mezua bidaltzean: {ex.Message}");
+            }
+        }
+    }
+
     private void BezeroaKudeatu(TcpClient socket)
     {
-        // Stream-a ateratzen dugu.
-        NetworkStream stream = socket.GetStream();
-        // StreamReader eta StreamWriter objektuak datuak era eroso baten bidaltzen usten digu, Kontsolatik idazten egongo bagenu bezala.
-        StreamWriter writer = new StreamWriter(stream);
-        StreamReader reader = new StreamReader(stream);
+        NetworkStream stream = null;
+        StreamWriter writer = null;
+        StreamReader reader = null;
+        string bezeroIzena = null;
 
-        // Bezeroak bidalitako informazioa hemen gortzen joango gara.
-        string data = string.Empty;
         try
         {
-            // <EOF> jasotzen ez dugun bitartean, datuak irakurri.
-            while (!data.Contains("<EOF>"))
+            stream = socket.GetStream();
+            writer = new StreamWriter(stream);
+            reader = new StreamReader(stream);
+
+            string lehenMezua = reader.ReadLine();
+            if (lehenMezua != null && lehenMezua.Contains(":"))
             {
-                // Gehitu irakurritako informazioa data aldagaiara.
-                // KONTUZ: lerro BLOKEANTE bat, datuak jaso arte hemen gelditzen da exekuzioa.
-                data += reader.ReadLine();
+                bezeroIzena = lehenMezua.Split(':')[0];
+
+                lock (blokeoa)
+                {
+                    if (bezeroak.Count >= maxBezeroak)
+                    {
+                        writer.WriteLine("Zerbitzaria beteta dago. Saiatu berriro geroago.");
+                        writer.WriteLine("<EOF>");
+                        writer.Flush();
+                        throw new Exception("Zerbitzaria beteta");
+                    }
+
+                    bezeroak.TryAdd(socket, bezeroIzena);
+                }
+
+                Console.WriteLine($"+++ {bezeroIzena} konektatu da. Konektatuta: {bezeroak.Count}/{maxBezeroak}");
+
+                Console.WriteLine(lehenMezua);
+                MezuaGuztiei(lehenMezua, socket).Wait();
             }
+            while (socket.Connected)
+            {
+                string data = string.Empty;
 
-            Console.WriteLine("Bezero konexioak itxaroten...");
+                while (!data.Contains("<EOF>"))
+                {
+                    string lerroa = reader.ReadLine();
+                    if (lerroa == null)
+                    {
+                        throw new Exception("Konexioa itxi da");
+                    }
+                    data += lerroa;
+                }
 
-            string mezua = data.Replace("<EOF>", "").Trim();
-            string erantzuna = $"Zerbitzariak jasota: {mezua}";
+                string mezua = data.Replace("<EOF>", "").Trim();
 
-            writer.WriteLine(data);
-            writer.WriteLine("<EOF>");
-            writer.Flush();
+                if (!string.IsNullOrEmpty(mezua))
+                {
+                    Console.WriteLine($"[{bezeroak.Count} konektatuta] {mezua}");
+                    MezuaGuztiei(mezua, socket).Wait();
+                }
+            }
         }
         catch (Exception e)
         {
-            Console.WriteLine("Komunikazio errorea: {0}", e);
+            if (e.Message != "Zerbitzaria beteta")
+            {
+                Console.WriteLine($"Akatsa {bezeroIzena}-(r)ekin: {e.Message}");
+            }
         }
+        finally
+        {
+            if (bezeroIzena != null)
+            {
+                lock (blokeoa)
+                {
+                    bezeroak.TryRemove(socket, out _);
+                }
 
-        writer.Close();
-        reader.Close();
-        stream.Close();
-        socket.Close();
+                string deskonexioMezua = $"SISTEMA: {bezeroIzena} deskonektatu da. ({bezeroak.Count}/{maxBezeroak})";
+                MezuaGuztiei(deskonexioMezua, socket).Wait();
 
-        // NORBAIT KONEKTATZEAN BERE IZENA HARTU TA "... KONEKTATU DA" TXATEAN IDATZI, DESKONEKTATZEAN BERDIN
-        //Console.WriteLine("Bezero-" + bezeroZenbakia + " konexioa itxita.");
+                Console.WriteLine($"--- {bezeroIzena} deskonektatu da. Konektatuta: {bezeroak.Count}/{maxBezeroak}");
+            }
+
+            writer?.Close();
+            reader?.Close();
+            stream?.Close();
+            socket?.Close();
+        }
     }
 
-    /**
-     * Irekitako konexio objektuak itxi.
-     */
     private void Itxi()
     {
         try
         {
+            foreach (var bezero in bezeroak.Keys)
+            {
+                bezero?.Close();
+            }
+            bezeroak.Clear();
+
             this.server.Stop();
             Console.WriteLine("Zerbitzaria bukatuta.");
         }

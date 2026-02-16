@@ -53,7 +53,7 @@
             gureMezua.Name = "gureMezua";
             gureMezua.Size = new Size(625, 67);
             gureMezua.TabIndex = 1;
-            gureMezua.TextChanged += gureMezua_TextChanged;
+            //gureMezua.TextChanged += gureMezua_TextChanged;
             // 
             // irtenBotoia
             // 

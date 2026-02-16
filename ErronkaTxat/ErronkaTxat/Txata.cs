@@ -28,14 +28,8 @@ namespace ErronkaTxat
             sar = sarb;
         }
 
-        private void gureMezua_TextChanged(object sender, EventArgs e)
-        {
-            //k
-        }
-
         public void Erabiltzailea(string erab)
         {
-            //this.erabiltzailea.Text = erab;
             erabiltzailea.Text = erab;
         }
 
@@ -63,15 +57,11 @@ namespace ErronkaTxat
                     txatPanela.Items.Add(erantzuna);
                 }
             }
-            //this.txatPanela.Items.Clear();
-            //this.txatPanela.Items.Add(zerb.ErakutsiErantzuna());
-            //txatPanela.Items.Add(/*await */zerb.ErakutsiErantzuna());
         }
 
         private async void bidaliBotoia_Click(object sender, EventArgs e)
         {
             zerb.BidaliDatuak(erabiltzailea.Text, gureMezua.Text);
-            //txatPanela.Items.Add($"{erabiltzailea.Text}: {gureMezua.Text}");
             await txataEguneratu(gureMezua.Text);
             gureMezua.ResetText();
         }
