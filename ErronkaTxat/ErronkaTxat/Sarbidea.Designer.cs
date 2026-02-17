@@ -99,6 +99,7 @@ namespace erronkaTxat
             pasahitzTextBox.Location = new Point(234, 186);
             pasahitzTextBox.Margin = new Padding(3, 4, 3, 4);
             pasahitzTextBox.Name = "pasahitzTextBox";
+            pasahitzTextBox.PasswordChar = '•';
             pasahitzTextBox.Size = new Size(186, 27);
             pasahitzTextBox.TabIndex = 10;
             pasahitzTextBox.TextChanged += pasahitzTextBox_TextChanged;
