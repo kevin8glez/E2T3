@@ -4,40 +4,40 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: '',
     component: TabsPage,
     children: [
       {
-        path: 'bezeroak',
-        loadChildren: () => import('../bezeroak/bezeroak.module').then(m => m.BezeroakPageModule)
+        path: 'hasiera',
+        loadChildren: () => import('../hasiera/hasiera-routing.module').then(m => m.HasieraPageRoutingModule)
       },
       {
         path: 'zerbitzuak',
-        loadChildren: () => import('../zerbitzuak/zerbitzuak.module').then(m => m.ZerbitzuakPageModule)
+        loadChildren: () => import('../zerbitzuak/zerbitzuak-routing.module').then(m => m.ZerbitzuakPageRoutingModule)
       },
       {
         path: 'hitzorduak',
-        loadChildren: () => import('../hitzorduak/hitzorduak.module').then(m => m.HitzorduakPageModule)
+        loadChildren: () => import('../hitzorduak/hitzorduak-routing.module').then(m => m.HitzorduakPageRoutingModule)
       },
       {
         path: 'langileak',
-        loadChildren: () => import('../langileak/langileak.module').then(m => m.LangileakPageModule)
+        loadChildren: () => import('../langileak/langileak-routing.module').then(m => m.LangileakPageRoutingModule)
+      },
+      {
+        path: 'kontaktua',
+        loadChildren: () => import('../kontaktua/kontaktua-routing.module').then(m => m.KontaktuaPageRoutingModule)
       },
       {
         path: '',
-        redirectTo: '/tabs/bezeroak',
+        redirectTo: 'hasiera',
         pathMatch: 'full'
       }
     ]
-  },
-  {
-    path: '',
-    redirectTo: '/tabs/bezeroak',
-    pathMatch: 'full'
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
 })
 export class TabsPageRoutingModule {}

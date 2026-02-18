@@ -35,3 +35,35 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+// Botón de menú móvil
+.mobile-menu-button {
+  display: none;
+  
+  @media (max-width: 768px) {
+    display: block;
+    color: #d4a373;
+  }
+}
+
+// Ajustes responsive generales
+@media (max-width: 768px) {
+  ion-menu {
+    display: none;
+  }
+  
+  // El contenido ocupa todo el ancho en móvil
+  ion-router-outlet {
+    width: 100%;
+  }
+}
+
+.hitzaurrea-modal {
+  --height: auto;
+  --border-radius: 20px 20px 0 0;
+  
+  &::part(content) {
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+  }
+}

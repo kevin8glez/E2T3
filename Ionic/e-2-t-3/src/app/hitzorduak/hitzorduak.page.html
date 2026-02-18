@@ -1,17 +1,93 @@
-<ion-header [translucent]="true">
+<ion-header translucent="true">
   <ion-toolbar>
-    <ion-title>
-      Hitzorduak
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button class="mobile-menu-button"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Nire Hitzorduak</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="createAppointment()">
+        <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Hitzorduak</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content fullscreen="true" class="appointments-content">
+  <div class="stats-header">
+    <div class="stat-item">
+      <span class="stat-number">{{ hitzorduak.length }}</span>
+      <span class="stat-label">Guztira</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">2</span>
+      <span class="stat-label">Baieztatuta</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">1</span>
+      <span class="stat-label">Zain</span>
+    </div>
+  </div>
 
-  <app-explore-container name="Hitzorduak"></app-explore-container>
+  <div class="create-cta">
+    <ion-button expand="block" (click)="createAppointment()" class="create-button">
+      <ion-icon slot="start" name="calendar-outline"></ion-icon>
+      HITZORDU BERRIA ESKATU
+    </ion-button>
+  </div>
+
+  <div class="appointments-list">
+    <h3>Datozen hitzorduak</h3>
+    
+    <div *ngFor="let hitzordua of hitzorduak" class="appointment-card">
+      <div class="card-header">
+        <div class="client-info">
+          <div class="client-avatar">
+            {{ hitzordua.bezeroa.charAt(0) }}
+          </div>
+          <div>
+            <h2>{{ hitzordua.bezeroa }}</h2>
+            <span class="status-badge" [style.background]="hitzordua.egoera === 'baieztatuta' ? '#4caf50' : '#ff9800'">
+              {{ hitzordua.egoera === 'baieztatuta' ? 'Baieztatuta' : 'Zain' }}
+            </span>
+          </div>
+        </div>
+        <ion-button fill="clear" size="small" class="more-btn">
+          <ion-icon slot="icon-only" name="ellipsis-vertical-outline"></ion-icon>
+        </ion-button>
+      </div>
+
+      <div class="appointment-details">
+        <div class="detail-item">
+          <ion-icon name="calendar-outline"></ion-icon>
+          <span>{{ hitzordua.data }}</span>
+        </div>
+        <div class="detail-item">
+          <ion-icon name="time-outline"></ion-icon>
+          <span>{{ hitzordua.ordua }}</span>
+        </div>
+        <div class="detail-item">
+          <ion-icon name="cut-outline"></ion-icon>
+          <span>{{ hitzordua.zerbitzua }}</span>
+        </div>
+      </div>
+
+      <div class="card-actions">
+        <ion-button fill="clear" size="small">
+          <ion-icon slot="start" name="create-outline"></ion-icon>
+          Aldatu
+        </ion-button>
+        <ion-button fill="clear" size="small" color="danger">
+          <ion-icon slot="start" name="trash-outline"></ion-icon>
+          Ezeztatu
+        </ion-button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="hitzorduak.length === 0" class="empty-state">
+    <ion-icon name="calendar-outline"></ion-icon>
+    <h3>Ez dago hitzordurik</h3>
+    <p>Sortu zure lehen hitzordua orain</p>
+    <ion-button (click)="createAppointment()">HITZORDUA ESKATU</ion-button>
+  </div>
 </ion-content>

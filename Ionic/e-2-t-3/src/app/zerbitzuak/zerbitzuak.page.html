@@ -1,51 +1,70 @@
 <ion-header translucent="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button class="mobile-menu-button"></ion-menu-button>
+    </ion-buttons>
     <ion-title>Zerbitzuak</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="pedirCita()">
+        <ion-icon slot="icon-only" name="calendar-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen="true" class="services-content">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Zerbitzuak</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="hero-section">
+    <h1>Gure Zerbitzuak</h1>
+    <p>Aukeratu zuretzako zerbitzurik egokiena</p>
+  </div>
 
-  <ion-card *ngFor="let bloque of servicios" class="service-card">
-    <ion-card-header>
-      <ion-card-title>{{ bloque.categoria }}</ion-card-title>
-      <ion-card-subtitle *ngIf="bloque.nota">
+  <div class="services-container">
+    <div *ngFor="let bloque of servicios" class="service-category">
+      <div class="category-header">
+        <div class="category-icon">
+          <ion-icon [name]="bloque.icono"></ion-icon>
+        </div>
+        <h2>{{ bloque.categoria }}</h2>
+      </div>
+      
+      <p *ngIf="bloque.nota" class="category-note">
+        <ion-icon name="information-circle-outline"></ion-icon>
         {{ bloque.nota }}
-      </ion-card-subtitle>
-    </ion-card-header>
+      </p>
 
-    <ion-card-content>
-      <ion-list lines="none">
-        <ion-item *ngFor="let item of bloque.items" class="service-item">
-          <ion-label>
+      <div class="services-list">
+        <div *ngFor="let item of bloque.items" class="service-item">
+          <div class="service-info">
             <h3>{{ item.nombre }}</h3>
-            <p>
+            <p class="service-description">{{ item.descripcion }}</p>
+            <p class="service-time">
               <ion-icon name="time-outline"></ion-icon>
               {{ item.tiempo }}
             </p>
-          </ion-label>
-
-          <div class="price">
-            {{ item.precio }}
           </div>
-        </ion-item>
-      </ion-list>
-    </ion-card-content>
-  </ion-card>
+          <div class="service-price-action">
+            <span class="price">{{ item.precio }}</span>
+            <ion-button fill="clear" size="small" (click)="bookService(item)" class="book-btn">
+              <ion-icon slot="icon-only" name="calendar-outline"></ion-icon>
+            </ion-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <ion-card class="info-card">
-    <ion-card-content>
-      <p>
-        Los precios pueden variar según la cantidad de producto utilizado.
-      </p>
-      <p>
-        Fijadores, acondicionadores, mascarillas y ampollas se cobran aparte.
-      </p>
-    </ion-card-content>
-  </ion-card>
+  <div class="info-card">
+    <ion-icon name="alert-circle-outline"></ion-icon>
+    <div class="info-content">
+      <p>Prezioak alda daitezke erabilitako produktu kantitatearen arabera.</p>
+      <p>Finkatzaileak, girotzaileak, maskarak eta anpuluak aparte kobratzen dira.</p>
+    </div>
+  </div>
+  
+  <div class="cta-bottom">
+    <ion-button expand="block" (click)="pedirCita()" class="cta-button-bottom">
+      <ion-icon slot="start" name="calendar-outline"></ion-icon>
+      HITZORDUA ESKATU
+    </ion-button>
+  </div>
 </ion-content>

@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-title>Hitzordua eskatu</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="form-container">
+    <div class="form-section">
+      <h3>Zure datuak</h3>
+      <ion-item>
+        <ion-label position="floating">Izena *</ion-label>
+        <ion-input [(ngModel)]="formData.izena" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Emaila *</ion-label>
+        <ion-input [(ngModel)]="formData.emaila" type="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Telefonoa *</ion-label>
+        <ion-input [(ngModel)]="formData.telefonoa" type="tel"></ion-input>
+      </ion-item>
+    </div>
+
+    <div class="form-section">
+      <h3>Zerbitzua *</h3>
+      <ion-item>
+        <ion-label>Aukeratu</ion-label>
+        <ion-select [(ngModel)]="formData.zerbitzua" interface="action-sheet">
+          <ion-select-option *ngFor="let s of serviciosParaSelect" [value]="s.nombre">
+            {{ s.nombre }} ({{ s.precio }})
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
+
+    <div class="form-section">
+      <h3>Data eta ordua *</h3>
+      <ion-item>
+        <ion-label>Aukeratu data</ion-label>
+        <ion-select [(ngModel)]="formData.data" interface="action-sheet">
+          <ion-select-option *ngFor="let f of fechasDisponibles" [value]="f">
+            {{ f | date:'fullDate':'':'eu' }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Aukeratu ordua</ion-label>
+        <ion-select [(ngModel)]="formData.ordua" interface="action-sheet">
+          <ion-select-option *ngFor="let o of orduakDisponibles" [value]="o">
+            {{ o }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
+
+    <div class="form-section">
+      <h3>Langilea (aukerakoa)</h3>
+      <ion-item>
+        <ion-label>Aukeratu</ion-label>
+        <ion-select [(ngModel)]="formData.langilea" interface="action-sheet">
+          <ion-select-option value="">Edonor</ion-select-option>
+          <ion-select-option *ngFor="let l of langileak" [value]="l.izena">
+            {{ l.izena }} - {{ l.espezialitatea }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
+
+    <div class="form-section">
+      <h3>Oharrak (aukerakoa)</h3>
+      <ion-item>
+        <ion-label position="floating">Zerbait gehiago?</ion-label>
+        <ion-textarea [(ngModel)]="formData.oharrak" rows="3"></ion-textarea>
+      </ion-item>
+    </div>
+
+    <div class="info-box">
+      <ion-icon name="information-circle-outline"></ion-icon>
+      <p>Datu guztiak bete behar dira. Baieztapen emaila jasoko duzu.</p>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()" color="medium">EZEZTATU</ion-button>
+      <ion-button [disabled]="!isValid()" (click)="submit()" class="confirm-button">
+        <ion-icon slot="start" name="calendar-outline"></ion-icon>
+        BAIEZTATU
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

@@ -1,17 +1,52 @@
-<ion-header [translucent]="true">
+<ion-header translucent="true">
   <ion-toolbar>
-    <ion-title>
-      Langileak
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button class="mobile-menu-button"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Gure Taldea</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="pedirCita()">
+        <ion-icon slot="icon-only" name="calendar-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Langileak</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content fullscreen="true" class="workers-content">
+  <div class="team-header">
+    <h1>Profesionalak</h1>
+    <p>Zure ilea esku onetan dago</p>
+  </div>
 
- <app-explore-container name="Langileak page"></app-explore-container>
+  <ion-grid class="team-grid">
+    <ion-row>
+      <ion-col size="12" *ngFor="let langile of langileak">
+        <div class="worker-card">
+          <div class="worker-image">
+            <img [src]="langile.argazkia" [alt]="langile.izena" />
+            <div class="experience-badge">{{ langile.esperientzia }}</div>
+          </div>
+          <div class="worker-info">
+            <h2>{{ langile.izena }}</h2>
+            <p class="specialty">{{ langile.espezialitatea }}</p>
+            <p class="bio">{{ langile.bio }}</p>
+            <div class="worker-actions">
+              <ion-button fill="clear" size="small" (click)="selectWorker(langile)" class="book-worker-btn">
+                <ion-icon slot="start" name="calendar-outline"></ion-icon>
+                Hitzordua eskatu
+              </ion-button>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="cta-banner">
+    <h3>Langilerik gustokoena aukeratu nahi?</h3>
+    <p>Hitzordua eskatzerakoan zehaztu dezakezu</p>
+    <ion-button (click)="pedirCita()" class="cta-button">
+      HITZORDUA ESKATU
+    </ion-button>
+  </div>
 </ion-content>

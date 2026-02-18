@@ -5,12 +5,12 @@ import { LangileakPage } from './langileak.page';
 const routes: Routes = [
   {
     path: '',
-    component: LangileakPage
+    component: LangileakPage,
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class LangileakPageRoutingModule {}

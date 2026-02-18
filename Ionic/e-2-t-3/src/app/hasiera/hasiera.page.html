@@ -1,0 +1,57 @@
+<ion-header translucent="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button class="mobile-menu-button"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>ARTALE ILEAPAIN</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="pedirCita()">
+        <ion-icon slot="icon-only" name="calendar-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true" class="hasiera-content">
+  <div class="hero-section">
+    <div class="hero-overlay">
+      <h1>Itxura berria, zeu berria</h1>
+      <p>Profesionaltasuna eta kalitatea</p>
+      
+      <ion-button expand="block" routerLink="/zerbitzuak" class="cta-button">
+        EZAGUTU GURE ZERBITZUAK
+      </ion-button>
+      
+      <ion-button expand="block" (click)="pedirCita()" class="appointment-yellow-button">
+        <ion-icon slot="start" name="calendar-outline"></ion-icon>
+        HITZORDUA ESKATU
+      </ion-button>
+    </div>
+  </div>
+
+  <div class="section-title">
+    <h2>Gure Zerbitzuak</h2>
+    <p>Aukeratu zure beharretara egokitzen den zerbitzua</p>
+  </div>
+
+  <ion-grid class="services-grid">
+    <ion-row>
+      <ion-col size="6" *ngFor="let zerbitzu of zerbitzuak">
+        <div class="service-card" (click)="pedirCita()">
+          <div class="service-icon">
+            <ion-icon [name]="zerbitzu.ikonoa"></ion-icon>
+          </div>
+          <h3>{{ zerbitzu.izena }}</h3>
+          <p>{{ zerbitzu.deskribapena }}</p>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="cta-section">
+    <h3>Prest zure itxura aldatzeko?</h3>
+    <ion-button fill="outline" (click)="pedirCita()">
+      HITZORDUA ESKATU
+    </ion-button>
+  </div>
+</ion-content>

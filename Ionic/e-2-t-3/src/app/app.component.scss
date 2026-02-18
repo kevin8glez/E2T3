@@ -1,0 +1,123 @@
+.right-split-pane {
+  --side-width: 240px;
+  --side-max-width: 260px;
+  --side-min-width: 200px;
+
+  // Estilos para cuando el split-pane está activo (pantallas grandes)
+  &::part(panels) {
+    margin-left: 0;
+    margin-right: var(--side-width);
+  }
+
+  // Cuando está deshabilitado (pantallas pequeñas)
+  &[disabled] {
+    &::part(panels) {
+      margin-right: 0;
+    }
+  }
+}
+
+ion-menu {
+  --width: 240px;
+  --min-width: 200px;
+  --max-width: 260px;
+  
+  &::part(container) {
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+    border-left: 1px solid rgba(0, 0, 0, 0.05);
+  }
+}
+
+.custom-menu {
+  --background: #ffffff;
+
+  .menu-content {
+    --background: #ffffff;
+
+    .menu-profile {
+      text-align: center;
+      padding: 30px 15px;
+      background: linear-gradient(135deg, #d4a373, #b5835a);
+      color: white;
+
+      .profile-avatar {
+        width: 70px;
+        height: 70px;
+        margin: 0 auto 12px;
+        border-radius: 35px;
+        overflow: hidden;
+        border: 3px solid white;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+
+      p {
+        font-size: 0.75rem;
+        opacity: 0.9;
+      }
+    }
+
+    ion-list {
+      padding: 15px 0;
+
+      ion-item {
+        --background: transparent;
+        --color: #333;
+        margin: 3px 0;
+        font-size: 0.9rem;
+        --min-height: 44px;
+
+        ion-icon {
+          color: #d4a373;
+          font-size: 20px;
+        }
+
+        &.ion-selected {
+          --background: #f8f0e7;
+          --color: #d4a373;
+          font-weight: 500;
+          border-left: 3px solid #d4a373;
+        }
+      }
+    }
+
+    .menu-footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      border-top: 1px solid #f0f0f0;
+
+      ion-item {
+        --color: #f44336;
+        --min-height: 44px;
+        font-size: 0.9rem;
+        
+        ion-icon {
+          color: #f44336;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+
+::ng-deep {
+  .mobile-menu-button {
+    display: none !important;
+    
+    @media (max-width: 768px) {
+      display: block !important;
+      color: #d4a373;
+    }
+  }
+}

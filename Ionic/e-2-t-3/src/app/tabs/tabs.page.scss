@@ -1,1 +1,29 @@
 
+.custom-tab-bar {
+  --background: #ffffff;
+  --border: none;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
+  height: 60px;
+  padding-bottom: 5px;
+
+  ion-tab-button {
+    --color: #999;
+    --color-selected: #d4a373;
+
+    ion-icon {
+      font-size: 22px;
+    }
+
+    ion-label {
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    &.tab-selected {
+      ion-icon, ion-label {
+        color: #d4a373;
+        font-weight: 600;
+      }
+    }
+  }
+}

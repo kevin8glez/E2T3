@@ -1,0 +1,103 @@
+<ion-header translucent="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button class="mobile-menu-button"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Kontaktua</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="pedirCita()">
+        <ion-icon slot="icon-only" name="calendar-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true" class="contact-content">
+  <div class="map-container">
+    <div class="map-placeholder">
+      <ion-icon name="map-outline"></ion-icon>
+      <p>Mapa hemen agertuko da</p>
+    </div>
+  </div>
+
+  <div class="contact-info">
+    <h2>Harremanetarako</h2>
+    
+    <div class="info-item">
+      <ion-icon name="location-outline"></ion-icon>
+      <div>
+        <h3>Helbidea</h3>
+        <p>{{ contactInfo.helbidea }}</p>
+      </div>
+    </div>
+
+    <div class="info-item">
+      <ion-icon name="call-outline"></ion-icon>
+      <div>
+        <h3>Telefonoa</h3>
+        <p><a href="tel:{{ contactInfo.telefonoa }}">{{ contactInfo.telefonoa }}</a></p>
+      </div>
+    </div>
+
+    <div class="info-item">
+      <ion-icon name="mail-outline"></ion-icon>
+      <div>
+        <h3>Emaila</h3>
+        <p><a href="mailto:{{ contactInfo.emaila }}">{{ contactInfo.emaila }}</a></p>
+      </div>
+    </div>
+
+    <div class="info-item">
+      <ion-icon name="time-outline"></ion-icon>
+      <div>
+        <h3>Ordutegia</h3>
+        <p style="white-space: pre-line">{{ contactInfo.ordutegia }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-form">
+    <h3>Bidali mezua</h3>
+    
+    <ion-item>
+      <ion-label position="floating">Izena</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Emaila</ion-label>
+      <ion-input type="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Mezua</ion-label>
+      <ion-textarea rows="4"></ion-textarea>
+    </ion-item>
+
+    <ion-button expand="block" (click)="sendMessage()" class="send-button">
+      BIDALI
+    </ion-button>
+  </div>
+
+  <div class="social-section">
+    <h3>Jarraitu gurekin</h3>
+    <div class="social-icons">
+      <ion-button fill="clear" (click)="pedirCita()">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" (click)="pedirCita()">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" (click)="pedirCita()">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+
+  <div class="contact-cta">
+    <ion-button expand="block" (click)="pedirCita()" class="contact-appointment-button">
+      <ion-icon slot="start" name="calendar-outline"></ion-icon>
+      HITZORDUA ESKATU
+    </ion-button>
+  </div>
+</ion-content>
