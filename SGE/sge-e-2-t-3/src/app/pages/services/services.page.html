@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Zerbitzuak</ion-title>
+  </ion-toolbar>
+  
+  <ion-toolbar>
+    <ion-searchbar 
+      [(ngModel)]="searchTerm" 
+      (ionInput)="filterServices()"
+      placeholder="Bilatu zerbitzua...">
+    </ion-searchbar>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-button expand="block" (click)="addService()" color="success">
+      <ion-icon name="add" slot="start"></ion-icon>
+      ZERBITZU BERRIA
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let service of filteredServices" style="margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;">
+      <ion-label>
+        <h2><strong>{{ service.name }}</strong></h2>
+        <p>Iraupena: {{ service.duration }} min</p>
+        <p>Prezioa: {{ service.price | currency:'EUR' }}</p>
+        <p *ngIf="service.home_price">Etxean: {{ service.home_price | currency:'EUR' }}</p>
+      </ion-label>
+      
+      <ion-buttons slot="end">
+        <ion-button (click)="editService(service)" color="primary" style="background: #3880ff; color: white; margin-right: 5px;">
+          <ion-icon name="create" slot="icon-only"></ion-icon>
+        </ion-button>
+        <ion-button (click)="confirmDelete(service)" color="danger" style="background: #eb445a; color: white;">
+          <ion-icon name="trash" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+
+    <ion-item *ngIf="filteredServices.length === 0">
+      <ion-label class="ion-text-center">
+        <h3>Ez dago zerbitzurik</h3>
+        <p>Sakatu ZERBITZU BERRIA botoia sortzeko</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

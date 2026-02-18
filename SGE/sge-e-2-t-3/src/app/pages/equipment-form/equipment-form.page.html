@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/equipments"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ isEdit ? 'Editar' : 'Nuevo' }} Equipo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div *ngIf="loading" class="ion-text-center ion-padding">
+    <ion-spinner name="crescent"></ion-spinner>
+    <p>Cargando...</p>
+  </div>
+
+  <form *ngIf="!loading" #equipmentForm="ngForm" (ngSubmit)="saveEquipment()" class="ion-padding">
+    <ion-item>
+      <ion-label position="floating">Etiqueta *</ion-label>
+      <ion-select [(ngModel)]="equipment.label" name="label" required>
+        <ion-select-option value="eq">Equipo</ion-select-option>
+        <ion-select-option value="tool">Herramienta</ion-select-option>
+        <ion-select-option value="furniture">Mobiliario</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Nombre *</ion-label>
+      <ion-input [(ngModel)]="equipment.name" name="name" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Marca</ion-label>
+      <ion-input [(ngModel)]="equipment.brand" name="brand"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Descripción</ion-label>
+      <ion-textarea [(ngModel)]="equipment.description" name="description"></ion-textarea>
+    </ion-item>
+
+    <div class="ion-padding">
+      <ion-button expand="block" type="submit" [disabled]="!equipmentForm.valid">
+        {{ isEdit ? 'Actualizar' : 'Guardar' }}
+      </ion-button>
+    </div>
+  </form>
+</ion-content>

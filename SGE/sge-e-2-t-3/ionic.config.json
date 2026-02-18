@@ -1,0 +1,8 @@
+{
+  "name": "sge-e-2-t-3",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "proxyConfig": "proxy.conf.json"
+}

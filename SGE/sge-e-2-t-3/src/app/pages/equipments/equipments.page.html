@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Ekipoak</ion-title>
+  </ion-toolbar>
+  
+  <ion-toolbar>
+    <ion-searchbar 
+      [(ngModel)]="searchTerm" 
+      (ionInput)="filterEquipments()"
+      placeholder="Bilatu ekipoa...">
+    </ion-searchbar>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-button expand="block" (click)="addEquipment()" color="success">
+      <ion-icon name="add" slot="start"></ion-icon>
+      EKIPO BERRIA
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item-group *ngFor="let label of groupedEquipments">
+      <ion-item-divider sticky>
+        <ion-label>{{ label.labelName }}</ion-label>
+      </ion-item-divider>
+
+      <ion-item *ngFor="let equipment of label.equipments" style="margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;">
+        <ion-label>
+          <h2><strong>{{ equipment.name }}</strong></h2>
+          <p *ngIf="equipment.brand">Marka: {{ equipment.brand }}</p>
+          <p *ngIf="equipment.description">Deskribapena: {{ equipment.description }}</p>
+        </ion-label>
+        
+        <ion-buttons slot="end">
+          <ion-button (click)="editEquipment(equipment)" color="primary" style="background: #3880ff; color: white; margin-right: 5px;">
+            <ion-icon name="create" slot="icon-only"></ion-icon>
+          </ion-button>
+          <ion-button (click)="confirmDelete(equipment)" color="danger" style="background: #eb445a; color: white;">
+            <ion-icon name="trash" slot="icon-only"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-item-group>
+
+    <ion-item *ngIf="filteredEquipments.length === 0">
+      <ion-label class="ion-text-center">
+        <h3>Ez dago ekiporik</h3>
+        <p>Sakatu EKIPO BERRIA botoia sortzeko</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

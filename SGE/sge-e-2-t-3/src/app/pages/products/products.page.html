@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Produktuak</ion-title>
+  </ion-toolbar>
+  
+  <ion-toolbar>
+    <ion-searchbar 
+      [(ngModel)]="searchTerm" 
+      (ionInput)="filterProducts()"
+      placeholder="Bilatu produktua...">
+    </ion-searchbar>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-button expand="block" (click)="addProduct()" color="success">
+      <ion-icon name="add" slot="start"></ion-icon>
+      PRODUKTU BERRIA
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item-group *ngFor="let category of groupedProducts">
+      <ion-item-divider sticky>
+        <ion-label>{{ category.categoryName }}</ion-label>
+      </ion-item-divider>
+
+      <ion-item *ngFor="let product of category.products" style="margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;">
+        <ion-label>
+          <h2><strong>{{ product.name }}</strong></h2>
+          <p>Marka: {{ product.brand }}</p>
+          <p>Lotea: {{ product.batch }}</p>
+          <p>Stock: {{ product.stock }} (min: {{ product.min_strock }})</p>
+          <p *ngIf="product.expiration_date">Iraungitze data: {{ product.expiration_date | date }}</p>
+        </ion-label>
+        
+        <ion-buttons slot="end">
+          <ion-button (click)="editProduct(product)" color="primary" style="background: #3880ff; color: white; margin-right: 5px;">
+            <ion-icon name="create" slot="icon-only"></ion-icon>
+          </ion-button>
+          <ion-button (click)="confirmDelete(product)" color="danger" style="background: #eb445a; color: white;">
+            <ion-icon name="trash" slot="icon-only"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-item-group>
+
+    <ion-item *ngIf="filteredProducts.length === 0">
+      <ion-label class="ion-text-center">
+        <h3>Ez dago produkturik</h3>
+        <p>Sakatu PRODUKTU BERRIA botoia sortzeko</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

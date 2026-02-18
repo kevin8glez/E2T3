@@ -1,0 +1,19 @@
+.menu-icon-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0 0 0;
+  
+  .menu-icon {
+    font-size: 64px;
+    color: var(--ion-color-primary);
+  }
+}
+
+ion-card {
+  height: 100%;
+  transition: transform 0.2s;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+}

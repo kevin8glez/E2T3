@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/services"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ isEdit ? 'Editar' : 'Nuevo' }} Servicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div *ngIf="loading" class="ion-text-center ion-padding">
+    <ion-spinner name="crescent"></ion-spinner>
+    <p>Cargando...</p>
+  </div>
+
+  <form *ngIf="!loading" #serviceForm="ngForm" (ngSubmit)="saveService()" class="ion-padding">
+    <ion-item>
+      <ion-label position="floating">Nombre *</ion-label>
+      <ion-input [(ngModel)]="service.name" name="name" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Precio (€) *</ion-label>
+      <ion-input [(ngModel)]="service.price" name="price" type="number" step="0.01" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Precio a domicilio (€)</ion-label>
+      <ion-input [(ngModel)]="service.home_price" name="home_price" type="number" step="0.01"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Duración (minutos) *</ion-label>
+      <ion-input [(ngModel)]="service.duration" name="duration" type="number" required></ion-input>
+    </ion-item>
+
+    <div class="ion-padding">
+      <ion-button expand="block" type="submit" [disabled]="!serviceForm.valid">
+        {{ isEdit ? 'Actualizar' : 'Guardar' }}
+      </ion-button>
+    </div>
+  </form>
+</ion-content>

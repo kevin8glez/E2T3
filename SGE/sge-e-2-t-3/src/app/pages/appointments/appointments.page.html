@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Hitzaurreak</ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="filterType" (ionChange)="filterAppointments()">
+      <ion-segment-button value="all">
+        <ion-label>Denak</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="today">
+        <ion-label>Gaur</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="week">
+        <ion-label>Astea</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-button expand="block" (click)="addAppointment()" color="success">
+      <ion-icon name="add" slot="start"></ion-icon>
+      HITZAURRE BERRIA
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item-group *ngFor="let dateGroup of groupedAppointments">
+      <ion-item-divider sticky>
+        <ion-label>{{ dateGroup.date | date:'fullDate' }}</ion-label>
+      </ion-item-divider>
+
+      <ion-item *ngFor="let appointment of dateGroup.appointments" style="margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;">
+        <ion-label>
+          <h2><strong>{{ appointment.name || appointment.client?.name + ' ' + appointment.client?.surname }}</strong></h2>
+          <p>Ordua: {{ appointment.start_time }} - {{ appointment.end_time }}</p>
+          <p *ngIf="appointment.student">Ikaslea: {{ appointment.student.name }} {{ appointment.student.surname }}</p>
+          <p *ngIf="appointment.seat">Eserlekua: {{ appointment.seat }}</p>
+          <p *ngIf="appointment.comment">Oharra: {{ appointment.comment }}</p>
+        </ion-label>
+        
+        <ion-buttons slot="end">
+          <ion-button (click)="editAppointment(appointment)" color="primary" style="background: #3880ff; color: white; margin-right: 5px;">
+            <ion-icon name="create" slot="icon-only"></ion-icon>
+          </ion-button>
+          <ion-button (click)="confirmDelete(appointment)" color="danger" style="background: #eb445a; color: white;">
+            <ion-icon name="trash" slot="icon-only"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-item-group>
+
+    <ion-item *ngIf="groupedAppointments.length === 0">
+      <ion-label class="ion-text-center">
+        <h3>Ez dago hitzaurrerik</h3>
+        <p>Sakatu HITZAURRE BERRIA botoia sortzeko</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

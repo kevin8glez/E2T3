@@ -1,0 +1,46 @@
+ion-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ion-color-light);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+}
+
+ion-badge {
+  margin-top: 5px;
+  font-size: 0.8rem;
+}
+
+ion-icon {
+  vertical-align: middle;
+  margin-right: 3px;
+}
+
+ion-item {
+  --padding-start: 10px;
+  --inner-padding-end: 10px;
+  margin-bottom: 5px;
+}
+
+ion-buttons {
+  ion-button {
+    margin: 0 2px;
+  }
+}
+
+ion-button {
+  font-weight: bold;
+}
+
+ion-item {
+  --padding-start: 10px;
+  --inner-padding-end: 10px;
+}
+
+/* Estilo para los botones de acción */
+ion-buttons ion-button {
+  border-radius: 4px;
+  padding: 8px;
+}

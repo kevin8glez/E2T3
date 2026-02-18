@@ -1,0 +1,67 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/products"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ isEdit ? 'Editar' : 'Nuevo' }} Producto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div *ngIf="loading" class="ion-text-center ion-padding">
+    <ion-spinner name="crescent"></ion-spinner>
+    <p>Cargando...</p>
+  </div>
+
+  <form *ngIf="!loading" #productForm="ngForm" (ngSubmit)="saveProduct()" class="ion-padding">
+    <ion-item>
+      <ion-label position="floating">Nombre *</ion-label>
+      <ion-input [(ngModel)]="product.name" name="name" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Categoría</ion-label>
+      <ion-select [(ngModel)]="product.category_id" name="category_id">
+        <ion-select-option *ngFor="let category of categories" [value]="category.id">
+          {{ category.name }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Descripción</ion-label>
+      <ion-textarea [(ngModel)]="product.descripcion" name="descripcion"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Marca</ion-label>
+      <ion-input [(ngModel)]="product.brand" name="brand"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Lote</ion-label>
+      <ion-input [(ngModel)]="product.batch" name="batch"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Stock *</ion-label>
+      <ion-input [(ngModel)]="product.stock" name="stock" type="number" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Stock mínimo *</ion-label>
+      <ion-input [(ngModel)]="product.min_strock" name="min_strock" type="number" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Fecha de caducidad</ion-label>
+      <ion-input [(ngModel)]="product.expiration_date" name="expiration_date" type="date"></ion-input>
+    </ion-item>
+
+    <div class="ion-padding">
+      <ion-button expand="block" type="submit" [disabled]="!productForm.valid">
+        {{ isEdit ? 'Actualizar' : 'Guardar' }}
+      </ion-button>
+    </div>
+  </form>
+</ion-content>

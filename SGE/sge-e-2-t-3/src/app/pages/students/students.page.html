@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Ikasleak</ion-title>
+  </ion-toolbar>
+  
+  <ion-toolbar>
+    <ion-searchbar 
+      [(ngModel)]="searchTerm" 
+      (ionInput)="filterStudents()"
+      placeholder="Bilatu ikaslea...">
+    </ion-searchbar>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-button expand="block" (click)="addStudent()" color="success">
+      <ion-icon name="add" slot="start"></ion-icon>
+      IKASLE BERRIA
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item-group *ngFor="let group of groupedStudents">
+      <ion-item-divider sticky>
+        <ion-label>{{ group.groupName }}</ion-label>
+      </ion-item-divider>
+
+      <ion-item *ngFor="let student of group.students" style="margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;">
+        <ion-label>
+          <h2><strong>{{ student.name }} {{ student.surname }}</strong></h2>
+          <p>ID: {{ student.id }}</p>
+        </ion-label>
+        
+        <ion-buttons slot="end">
+          <ion-button (click)="editStudent(student)" color="primary" style="background: #3880ff; color: white; margin-right: 5px;">
+            <ion-icon name="create" slot="icon-only"></ion-icon>
+          </ion-button>
+          <ion-button (click)="confirmDelete(student)" color="danger" style="background: #eb445a; color: white;">
+            <ion-icon name="trash" slot="icon-only"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-item-group>
+
+    <ion-item *ngIf="filteredStudents.length === 0">
+      <ion-label class="ion-text-center">
+        <h3>Ez dago ikaslerik</h3>
+        <p>Sakatu IKASLE BERRIA botoia sortzeko</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
